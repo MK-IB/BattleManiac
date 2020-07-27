@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class WinnerOrLoser : MonoBehaviour
 {
@@ -8,10 +9,11 @@ public class WinnerOrLoser : MonoBehaviour
 
     [SerializeField] private GameObject winLoseCanvas;
     [SerializeField] private Image winLoseBG;
-    [SerializeField] private Text winLoseText;
+    [SerializeField] private TextMeshProUGUI winLoseText;
 
     private void Awake()
     {
+        winLoseText = FindObjectOfType<TextMeshProUGUI>();
         if(!winLoseCanvas)
             return;
         winLoseCanvas.SetActive(false);
@@ -29,7 +31,7 @@ public class WinnerOrLoser : MonoBehaviour
         Debug.Log("You Lose");
         winLoseCanvas.SetActive(true);
         winLoseBG.color = Color.red;
-        winLoseText.text = loseText;
+        winLoseText.SetText(loseText);
 
         FindObjectOfType<Movement>().state = BattleState.LOST;
     }
@@ -39,6 +41,6 @@ public class WinnerOrLoser : MonoBehaviour
         Debug.Log("You Win");
         winLoseCanvas.SetActive(true);
         winLoseBG.color = Color.white;
-        winLoseText.text = winText;
+        winLoseText.SetText(winText);
     }
 }

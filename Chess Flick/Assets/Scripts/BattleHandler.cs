@@ -21,6 +21,7 @@ public class BattleHandler : MonoBehaviour
 
     private GameObject enemyKing;
     private GameObject playerKing;
+    private GameObject attackerEnemy;
 
     public float minPower = 480f;
     public float maxPower = 550f;
@@ -28,6 +29,7 @@ public class BattleHandler : MonoBehaviour
     private float damping = 100f;
 
     private float groundLevel = -0.5f;
+    private float playerKingDist = 0.5f;
 
     private void Awake()
     {
@@ -70,21 +72,31 @@ public class BattleHandler : MonoBehaviour
 
         //choose enemy attacker
         int enemyIndex = Random.Range(0, enemyArray.Count);
-        GameObject attackerEnemy = enemyArray[enemyIndex];
+        attackerEnemy = enemyArray[enemyIndex];
 
-        //get direction of player
+        //check if the player King is closer
+        float distFromPlayerKing = Vector3.Distance(attackerEnemy.transform.position, playerKing.transform.position);
+        if(distFromPlayerKing <= playerKingDist)
+        {
+            Vector3 dir = playerKing.transform.position - attackerEnemy.transform.position;
+            AttackThePlayer(playerKing, dir);
+        }
+        else
+        {
+        //choose player to attack and direction of it
         int playerIndex = Random.Range(0, playersArray.Count);
         GameObject toAttack = playersArray[playerIndex];
         Vector3 dir = toAttack.transform.position - attackerEnemy.transform.position;
-
-        //enable the pointer
-         //enemyPointer.GetComponent<MeshRenderer>().enabled = true;
-         //enemyPointer.transform.Rotate(dir);
-        //attack
+        AttackThePlayer(toAttack, dir);
+        }
+        
+    }
+    //attack
+    void  AttackThePlayer(GameObject toAttack, Vector3 dir)
+    {
         float power = Random.Range(minPower, maxPower);
         attackerEnemy.GetComponent<Rigidbody>().AddForce(dir * power);
     }
-
     
    
 }

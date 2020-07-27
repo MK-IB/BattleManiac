@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
+using System.Collections;
 
 public class AnimationController : MonoBehaviour
 {
@@ -10,22 +10,19 @@ public class AnimationController : MonoBehaviour
     public Animator Pawn2Animator;
     public Animator KingAnimator;
     public Animator CameraAnimator;
-    public Animator BattleButtonAnimator;
-    public Animator SkinChangeButtonAnimator;
-    public Animator ObjectChangeButtonAnimator;
-
+    public GameObject mainUI;
+    private float mainUIOffset = 360f;
+    
     public void StartTheGame()
     {
         SlabConnectorAnimation();
-        BattleButtonAnimation();
+        HideMainUI();
+    
     }
 
-    public void BattleButtonAnimation()
+    private void HideMainUI()
     {
-        BattleButtonAnimator.SetBool("startButtonAnimation", true);
-        SkinChangeButtonAnimator.SetBool("skinChangeButtonAnimation", true);
-        ObjectChangeButtonAnimator.SetBool("extraObjAnimation", true);
-
+       mainUI.SetActive(false);
     }
     public  void Pawn1Animation()
     {
@@ -39,11 +36,6 @@ public class AnimationController : MonoBehaviour
         Pawn2Animator.SetBool("startPawn2Animation", true);
         KingAnimation();
 
-    }
-
-    public void KnightAnimation()
-    {
-        
     }
 
     public void KingAnimation()

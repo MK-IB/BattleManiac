@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour
     {
         /* if(state != BattleState.PLAYERTURN)
             return; */
-       
+        FindObjectOfType<CameraRotation>().enabled = false;
         Vector3 draggingPos = Input.mousePosition;
         //Debug.Log("MOUSE POS:"+ Input.mousePosition);
         float distX = (draggingPos.x - dragStartPos.x) / 80;

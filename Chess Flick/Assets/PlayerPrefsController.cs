@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class PlayerPrefsController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    const string SAVED_SCENE_INDEX = "SavedSceneNumber";
+    
 }

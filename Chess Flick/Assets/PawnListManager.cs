@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PawnListManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public List<GameObject> pawnList;
+   public List<Transform> posTile;
+   public GameObject pawn;
+   public List<GameObject> GetpawnList()
+   {
+       return pawnList;
+   }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public void AdddPawnToList()
+   {
+       int index = Random.Range(0, posTile.Count);
+       GameObject newPawn = Instantiate(pawn, posTile[index].position, Quaternion.identity);
+       if(posTile != null)
+            pawnList.Add(newPawn);
+       posTile.RemoveAt(index);
+
+       //PlayerPrefsController.NU
+   }
 }

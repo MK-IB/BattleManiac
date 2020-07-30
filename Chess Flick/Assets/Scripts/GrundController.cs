@@ -1,25 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
 
 public class GrundController : MonoBehaviour
 {
     public GameObject touchEffect;
-    void OnCollisionEnter(Collision collider)
-    {
-        //if its player or slabs
-        if(collider.transform.tag == "slab" || collider.transform.tag == "player")
-        {
-            GameObject touchVFX = Instantiate(touchEffect, collider.transform.position, Quaternion.identity) as GameObject;
-            Debug.Log("Ground collision occured");
-            //StartCoroutine(DelayBeforeDestroy());
-            //Destroy(touchVFX);
-        }
-    }
+    public Transform[] barriers;
 
-    private IEnumerator DelayBeforeDestroy()
-    {
-       yield return new WaitForSeconds(0.5f);
-       Destroy(touchEffect);
-    }
+    private float offset = 0.1f;
+    private float speed = 1.5f;
+
+        public void ShowUpBarrier()
+        {
+            foreach(Transform barrier in barriers)
+            {
+                barrier.DOScaleY(offset, speed);
+            }
+        }
 }

@@ -10,5 +10,6 @@ public class AnimationDestroyer : MonoBehaviour
        GetComponent<Animator>().enabled =  false;
        FindObjectOfType<AnimationController>().DestroyTheAnimatedObjects();
        FindObjectOfType<BattleHandler>().InitializeSpawning();
+       GameObject.FindObjectOfType<GrundController>().ShowUpBarrier();
    }
 }

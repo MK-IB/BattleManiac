@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class AnimationController : MonoBehaviour
@@ -9,7 +10,7 @@ public class AnimationController : MonoBehaviour
     public Animator CameraAnimator;
     public GameObject mainUI;
     private float mainUIOffset = 360f;
-    
+
     public void StartTheGame()
     {
         SlabConnectorAnimation();
@@ -21,26 +22,8 @@ public class AnimationController : MonoBehaviour
     {
        mainUI.SetActive(false);
     }
-    public  void Pawn1Animation()
-    {
-        
-        Pawn2Animation();
-
-    }
-
-    public  void Pawn2Animation()
-    {
-        
-        KingAnimation();
-
-    }
-
-    public void KingAnimation()
-    {
-        
-        CameraAnimation();
-    }
-
+     
+     //animating the players towards the play ground
     public void CameraAnimation()
     {
         CameraAnimator.SetBool("cameraAnimation", true);
@@ -56,7 +39,7 @@ public class AnimationController : MonoBehaviour
     {
         SlabAnimator.SetBool("startSlabAnim", true);
         StartCoroutine(WaitForASec());
-        Pawn1Animation();
+        CameraAnimation();
     }
 
     IEnumerator WaitForASec()

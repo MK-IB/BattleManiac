@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2584975924208741192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2584975924208741195}
+  - component: {fileID: 2584975924208741194}
+  - component: {fileID: 2584975924208741197}
+  - component: {fileID: 2584975924208741196}
+  - component: {fileID: 2584975924208741199}
+  - component: {fileID: 2584975924208741198}
+  - component: {fileID: 2584975924208740529}
+  - component: {fileID: 2584975924208740528}
+  m_Layer: 0
+  m_Name: BATTLE CONTROLLER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2584975924208741195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.01829186, y: -1.3183868, z: -5.171001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2584975924208741194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ef1b821c0af4042a0c2aff796018b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3723598571168032815, guid: 694a7ee95a92bbd4d8cc7323417ea703, type: 3}
+  enemy: {fileID: 3723598571168032815, guid: cd91726a2648d174ca7741e7e8446400, type: 3}
+  playerPawn1: {fileID: 8616823789493360903, guid: cb784c309d870a14283573b86e963b56,
+    type: 3}
+  playerPawn2: {fileID: 8616823789493360903, guid: cb784c309d870a14283573b86e963b56,
+    type: 3}
+  enemyPawn1: {fileID: 8616823789493360903, guid: 23c7a4c893a51e44ab400914a548eeca,
+    type: 3}
+  enemyPawn2: {fileID: 8616823789493360903, guid: 23c7a4c893a51e44ab400914a548eeca,
+    type: 3}
+  minPower: 120
+  maxPower: 150
+--- !u!114 &2584975924208741197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7ee7d8fec2d274983813b06b67024a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlabAnimator: {fileID: 0}
+  CameraAnimator: {fileID: 0}
+  mainUI: {fileID: 0}
+--- !u!114 &2584975924208741196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bd27f5c0e37ee48acbd568c0934103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winLoseCanvas: {fileID: 0}
+  winLoseBG: {fileID: 0}
+  winLoseText: {fileID: 0}
+--- !u!114 &2584975924208741199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe27efffd5674443b9b50b31484fd1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsCanvas: {fileID: 0}
+--- !u!114 &2584975924208741198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3abbe650a66f419479f54013f1f02389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2584975924208740529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a472ecb67d823be4693600bf60aebd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pawnList: []
+  posTile:
+  - {fileID: 0}
+  - {fileID: 0}
+  pawn: {fileID: 4741800359494019860, guid: cb784c309d870a14283573b86e963b56, type: 3}
+  numOfPawnsBought: 0
+--- !u!114 &2584975924208740528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc05b7243f624f449ef41aaae2c9a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diamondText: {fileID: 0}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using System.Collections;
 using TMPro;
 
 public class WinnerOrLoser : MonoBehaviour
@@ -7,40 +8,58 @@ public class WinnerOrLoser : MonoBehaviour
     private string winText = "YOU WIN";
     private string loseText = "YOU LOSE";
 
-    [SerializeField] private GameObject winLoseCanvas;
-    [SerializeField] private Image winLoseBG;
+    [SerializeField] private GameObject winCanvas;
+    [SerializeField] private GameObject loseCanvas;
     [SerializeField] private TextMeshProUGUI winLoseText;
+    
 
+    public GameObject playerKing;
+    public GameObject enemyKing;
+    public GameObject crown;
+
+    private bool gameEnded = false;
     private void Awake()
     {
-        winLoseText = FindObjectOfType<TextMeshProUGUI>();
-        if(!winLoseCanvas)
-            return;
-        winLoseCanvas.SetActive(false);
+        winCanvas.SetActive(false);
+        loseCanvas.SetActive(false);
     }
 
    public void WinOrLose(string tag)
     {
-        if(tag == "playerKing")
+        if(tag == "playerKing" && gameEnded == false)
+        {
+            gameEnded = true;
             HandleLoseCondition();
-        else   
+        }
+
+        if(tag == "enemyKing" && gameEnded == false)
+        {
+            gameEnded = true;
             HandleWinCondition();
+        }
     }
     public void HandleLoseCondition()
     {
-        Debug.Log("You Lose");
-        winLoseCanvas.SetActive(true);
-        winLoseBG.color = Color.red;
-        winLoseText.SetText(loseText);
-
-        FindObjectOfType<Movement>().state = BattleState.LOST;
+        Debug.Log("You lost");
+        loseCanvas.SetActive(true);
     }
 
     public void HandleWinCondition()
     {
         Debug.Log("You Win");
-        winLoseCanvas.SetActive(true);
-        winLoseBG.color = Color.white;
-        winLoseText.SetText(winText);
+        winCanvas.SetActive(true);
+    }
+
+    //calling from the diamonds img animation event !
+    public void HideWinCanvas()
+    {
+        winCanvas.SetActive(false);
+    }
+    IEnumerator CrownAnimation()
+    {
+        //Vector3 pos = new Vector4(playerKing.transform.position.x, playerKing.transform.position.y + 0.25f, playerKing.transform.position.z);
+        //Instantiate(crown, pos, Quaternion.identity);
+        yield return new WaitForSeconds(0.3f);
+         
     }
 }

@@ -9,6 +9,8 @@ public class PlayerPrefsController : MonoBehaviour
     const string NUM_OF_DIAMONDS= "Num of diamonds";
     const string POS_TILE_NULL = "PosTile State";
 
+    const string MAT_COLOR = "Color code";
+
     public static void SetPosTileState(int state)
     {   
         PlayerPrefs.SetInt(POS_TILE_NULL, state);
@@ -22,6 +24,11 @@ public class PlayerPrefsController : MonoBehaviour
     public static int GetSavedLevel()
     {
         return PlayerPrefs.GetInt(SAVED_LEVEL_INDEX);
+    }
+
+    public static void SetSavedLevel(int index)
+    {
+        PlayerPrefs.SetInt(SAVED_LEVEL_INDEX, index);
     }
 
     public static void SetDiamonds(int diamonds)
@@ -46,5 +53,15 @@ public class PlayerPrefsController : MonoBehaviour
     public void ResetAll()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    public static void SetMatColor(Color color)
+    {
+        PlayerPrefsX.SetColor(MAT_COLOR, color);
+    }
+
+    public static Color GetMatColor()
+    {
+        return PlayerPrefsX.GetColor(MAT_COLOR);
     }
 }

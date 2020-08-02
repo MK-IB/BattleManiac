@@ -23,8 +23,8 @@ public class Movement : MonoBehaviour
 
     void Awake()
     {
-        sprite.GetComponent<MeshRenderer>().enabled = false;
-        state = BattleState.PLAYERTURN;
+         sprite.GetComponent<MeshRenderer>().enabled = false;
+  
     }
     
     public Vector3 GetPlayerKingPosition()

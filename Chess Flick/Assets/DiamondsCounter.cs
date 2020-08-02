@@ -5,6 +5,7 @@ public class DiamondsCounter : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI diamondText;
+    public Animator diamondsImgAnimator;
     private int diamonds = 0;
 
     void Start()
@@ -37,8 +38,12 @@ public class DiamondsCounter : MonoBehaviour
         diamonds -= amount;
         PlayerPrefsController.SetDiamonds(diamonds);
         UpdateDisplay();
-      }
-      
+      }  
   }
     
+    public void CollectDiamonds()
+      {
+         diamondsImgAnimator.SetBool("startDiamondsAnimation", true);
+         AddDiamonds(50);
+      }
 }

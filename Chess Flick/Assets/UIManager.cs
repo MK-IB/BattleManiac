@@ -4,24 +4,33 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
 
-    [SerializeField] private GameObject settingsCanvas;
-
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject skinSelectionPanel;
     public TextMeshProUGUI levelText;
 
     private void Awake()
     {
-        levelText.SetText("Level " + PlayerPrefsController.GetSavedLevel());
-        if(!settingsCanvas)
-            return;
-        settingsCanvas.SetActive(false);
+        settingsPanel.SetActive(false);
+        skinSelectionPanel.SetActive(false);
     }
     public void ShowSettingsPanel()
     {
-        settingsCanvas.SetActive(true);
+        settingsPanel.SetActive(true);
     }
 
     public void HideSettingsPanel()
     {
-        settingsCanvas.SetActive(false);
+        settingsPanel.SetActive(false);
     }
+    public void ShowSkinsPanel()
+    {
+        skinSelectionPanel.SetActive(true);
+    }
+
+    public void HideSkinsPanel()
+    {
+        skinSelectionPanel.SetActive(false);
+    }
+
+   
 }

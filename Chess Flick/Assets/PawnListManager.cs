@@ -10,7 +10,9 @@ public class PawnListManager : MonoBehaviour
 
    private DiamondsCounter diamondsCounter;
    public int numOfPawnsBought = 0;
-
+   private Color matColor;
+   
+   public Material playersMat;
    private int numTile = 1;
 
     void Start()
@@ -18,12 +20,58 @@ public class PawnListManager : MonoBehaviour
         diamondsCounter = FindObjectOfType<DiamondsCounter>();
         SpawnPawns();
         Debug.Log("pawns bought:" + PlayerPrefsController.GetNumOfPawnsBought());
+        playersMat.color = PlayerPrefsController.GetMatColor();
     }
    public List<GameObject> GetpawnList()
    {
        return pawnList;
    }
 
+   public void ChangeMatColor(int code)
+   {
+       switch(code)
+       {
+           case 1:
+           matColor = new Color(1f, 0.07f, 0.66f);
+           break;
+
+           case 2:
+           matColor = new Color(0.27f, 0.98f, 0.44f);
+           break;
+
+           case 3:
+           matColor = new Color(0.13f, 0.94f, 1f);
+           break;
+
+           case 4:
+           matColor = new Color(1f, 0.78f, 0.33f);
+           break;
+
+           case 5:
+           matColor = new Color(0.92f, 0.34f, 0.91f);
+           break;
+
+           case 6:
+           matColor = new Color(0.74f, 0.80f, 1f);
+           break;
+
+           case 7:
+           matColor = new Color(0.97f, 0.40f, 0.40f);
+           break;
+
+           case 8:
+           matColor = new Color(0.47f, 0.58f, 1f);
+           break;
+
+           case 9:
+           matColor = new Color(0.99f, 0.98f, 0.10f);
+           break;
+
+       }
+       
+       playersMat.color = matColor;
+       PlayerPrefsController.SetMatColor(matColor); 
+   }
     public void SpawnPawns()
     {
        int pawnNum = PlayerPrefsController.GetNumOfPawnsBought();

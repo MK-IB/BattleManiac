@@ -13,6 +13,8 @@ public class PawnListManager : MonoBehaviour
    private Color matColor;
    
    public Material playersMat;
+   public Texture grad1,grad2,grad3,grad4,grad5,grad6,grad7,grad8,grad9;
+   private Texture defTexture;
    private int numTile = 1;
 
     void Start()
@@ -70,8 +72,54 @@ public class PawnListManager : MonoBehaviour
        }
        
        playersMat.color = matColor;
+       playersMat.mainTexture = null;
        PlayerPrefsController.SetMatColor(matColor); 
    }
+    //Change the texture
+   public void ChangeTexture(int code)
+   {
+       switch(code)
+       {
+           case 10:
+           defTexture = grad1;
+           break;
+
+           case 11:
+           defTexture = grad2;
+           break;
+
+           case 12:
+           defTexture = grad3;
+           break;
+
+           case 13:
+           defTexture = grad4;
+           break;
+
+           case 14:
+           defTexture = grad5;
+           break;
+
+           case 15:
+           defTexture = grad6;
+           break;
+
+           case 16:
+           defTexture = grad7;
+           break;
+
+           case 17:
+           defTexture = grad8;
+           break;
+
+           case 18:
+           defTexture = grad9;
+           break;
+   }
+
+   playersMat.mainTexture = defTexture;
+   playersMat.color = Color.white;
+}
     public void SpawnPawns()
     {
        int pawnNum = PlayerPrefsController.GetNumOfPawnsBought();

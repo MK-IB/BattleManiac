@@ -1,6 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public enum BattleState{PLAYERTURN, ENEMYTURN, WON, LOST}
 
@@ -36,15 +37,25 @@ public class Movement : MonoBehaviour
     {
         /*if(state != BattleState.PLAYERTURN)
             return; */
-
-        dragStartPos = Input.mousePosition;
-        sprite.GetComponent<MeshRenderer>().enabled = true;
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return ;    
+        }
+        else
+        {
+            dragStartPos = Input.mousePosition;
+            sprite.GetComponent<MeshRenderer>().enabled = true;
+        }
         
     }
     void OnMouseDrag()
     {
-        /* if(state != BattleState.PLAYERTURN)
-            return; */
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        else
+        {
         FindObjectOfType<CameraRotation>().enabled = false;
         Vector3 draggingPos = Input.mousePosition;
         //Debug.Log("MOUSE POS:"+ Input.mousePosition);
@@ -59,13 +70,19 @@ public class Movement : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(-lookDir);
         sprite.rotation = Quaternion.Slerp(sprite.rotation, rotation, Time.deltaTime * damping);
         //sprite.LookAt(draggingPos);
+        }
+        
     
     }
     void OnMouseUp()
     {
         /*if(state != BattleState.PLAYERTURN)
             return; */
-
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        else{
         Vector3 dragReleasePos = Input.mousePosition;
 
         float distX = (dragReleasePos.x - dragStartPos.x) / 80;
@@ -84,6 +101,8 @@ public class Movement : MonoBehaviour
         //state = BattleState.PLAYERTURN;
         FindObjectOfType<BattleHandler>().SetupPlayers();
         FindObjectOfType<BattleHandler>().EnemyTurn();
+        }
+        
     }
 
     IEnumerator MakeEnemyTurn()

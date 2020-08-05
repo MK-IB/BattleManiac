@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2584975924208740529}
   - component: {fileID: 2584975924208740528}
   - component: {fileID: 6529500394259812348}
+  - component: {fileID: 1442487677}
   m_Layer: 0
   m_Name: BATTLE CONTROLLER
   m_TagString: Untagged
@@ -143,6 +144,15 @@ MonoBehaviour:
   pawn: {fileID: 4741800359494019860, guid: cb784c309d870a14283573b86e963b56, type: 3}
   numOfPawnsBought: 0
   playersMat: {fileID: 2100000, guid: 1279339fbc9a2e0478dcc365d8fce736, type: 2}
+  grad1: {fileID: 2800000, guid: 7dfb08553990dd34285486c53cd31db1, type: 3}
+  grad2: {fileID: 2800000, guid: d9ee31cea5e0c1c4ba4a0ab783911d56, type: 3}
+  grad3: {fileID: 2800000, guid: f196ef5cfbd00814a8786db3ab017c77, type: 3}
+  grad4: {fileID: 2800000, guid: d15ee424bf2bd654c87afb81ce2ea0a2, type: 3}
+  grad5: {fileID: 2800000, guid: ebf521d6f909fb040a89d630ca3f833c, type: 3}
+  grad6: {fileID: 2800000, guid: 68a478b83818ae845b2d1933271fd95f, type: 3}
+  grad7: {fileID: 2800000, guid: 95e93f5038a26e644bed354a05fe5746, type: 3}
+  grad8: {fileID: 2800000, guid: 3a6daa2031d242e43b71ddf5600d9b45, type: 3}
+  grad9: {fileID: 2800000, guid: 214ea8c242ed2b347bab656629a9eb28, type: 3}
 --- !u!114 &2584975924208740528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +168,18 @@ MonoBehaviour:
   diamondText: {fileID: 0}
   diamondsImgAnimator: {fileID: 0}
 --- !u!114 &6529500394259812348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0cd4b4469cacc47ad35c6636ce2b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1442487677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -7,37 +7,35 @@ public class MergingTest : MonoBehaviour
 
     [SerializeField] private GameObject cube; //prafab instantiation
     private List<GameObject> cubes;
-    public List<GameObject> tiles1;
-    public List<GameObject> tiles2;
-    public Transform target1;
-    private float diff = 0.5f;
-    private float speed = 2f;
+    public List<GameObject> tiles;
 
-    private int tile2Counter = 0;
+    private int tilesCounter;
 
-    private int numOfCubesBought;
-    private int tile1Capacity;
+    private int numOfPawnsBought;
+    private int tilesCapacity;
+
+    private bool firstTimePawnAddition = true;
+    private bool firstTimeTileAddition = true;
     
     void Start()
     {
-        //cubes = new List<GameObject>(GameObject.FindGameObjectsWithTag("cube"));
-        
-
+        InstantiatePawns();
+        DisplayTiles();
+        Debug.Log("Tiles counter="+ PlayerPrefsController.GetTilesCounter());
     }
 
     void Update()
     {
-        Debug.Log("Tiles 1 check" + tiles2[1].transform.position);
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(LerpPositions());
+            //StartCoroutine(LerpPositions());
             //UpdateTileParentPosition();
         }
 
         if(Input.GetKeyDown(KeyCode.T))
         {
-            Debug.Log("tiless 2 length:-" + tiles2.Count);
+            //Debug.Log("tiless length:-" + tiles.Count);
             AddTile();
         }
         if(Input.GetKeyDown(KeyCode.P))
@@ -55,7 +53,7 @@ public class MergingTest : MonoBehaviour
         }
     }
 
-    IEnumerator LerpPositions()
+    /*IEnumerator LerpPositions()
     {
         
         foreach(GameObject obj in cubes)
@@ -66,10 +64,10 @@ public class MergingTest : MonoBehaviour
                  yield return null;
              }
              diff += 1f;  
-        } 
+         } 
         
         StartCoroutine(GoToGround());
-    }
+    } */
 
     IEnumerator GoToGround()
     {
@@ -79,31 +77,58 @@ public class MergingTest : MonoBehaviour
 //add tiles
     public void AddTile()
     {
-        if(tile2Counter < tiles2.Count)
+        if(firstTimeTileAddition)
         {
-            tiles2[tile2Counter].SetActive(true);
-            tile2Counter += 1;
+            tilesCounter = 2;
+            firstTimeTileAddition = false;
+        } else tilesCounter = PlayerPrefsController.GetTilesCounter();
+        if(tilesCounter < tiles.Count)
+        {
+            tiles[tilesCounter].SetActive(true);
+            tilesCounter += 1;
+            tilesCapacity += 1;
+            PlayerPrefsController.SetTilesCapacity(tilesCapacity);
         }else Debug.Log("Tiles out of range");
 
-        PlayerPrefsController.SetTiles2Counter(tile2Counter);
+        PlayerPrefsController.SetTilesCounter(tilesCounter);
     }
 
     public void AddPawn()
     {
-        numOfCubesBought = PlayerPrefsController.GetNumOfPawnsBought();
-        tile1Capacity = 2 - numOfCubesBought;
-        if(numOfCubesBought <= tile1Capacity)
+        
+        if(firstTimePawnAddition)
         {
-            Instantiate(cube, tiles1[numOfCubesBought].transform.position, Quaternion.identity);
-            numOfCubesBought += 1;
-            PlayerPrefsController.SetNumOfPawnsBought(numOfCubesBought);
+            tilesCapacity = 2;
+            firstTimePawnAddition = false;
+        } else tilesCapacity = PlayerPrefsController.GetTilesCapacity();
 
-        } else Debug.Log("Have to add on tiles2");
-
+        if(tilesCapacity > 0)
+        {
+            numOfPawnsBought = PlayerPrefsController.GetNumOfPawnsBought();
+            Instantiate(cube, tiles[numOfPawnsBought].transform.position, Quaternion.identity);
+            tilesCapacity -= 1;
+            numOfPawnsBought += 1;
+            PlayerPrefsController.SetNumOfPawnsBought(numOfPawnsBought);
+            PlayerPrefsController.SetTilesCapacity(tilesCapacity);
+        }
     }
 
     public void InstantiatePawns()
     {
-    
+        numOfPawnsBought = PlayerPrefsController.GetNumOfPawnsBought();
+        for(int i =0; i < numOfPawnsBought; i++)
+        {
+            Instantiate(cube, tiles[i].transform.position, Quaternion.identity);
+        }
+    }
+
+    public void DisplayTiles()
+    {
+        tilesCounter = PlayerPrefsController.GetTilesCounter();
+        for(int i = 0; i < tilesCounter; i++)
+        {
+            tiles[i].SetActive(true);
+        }
+
     }
 }

@@ -10,8 +10,9 @@ public class PlayerPrefsController : MonoBehaviour
     const string POS_TILE_NULL = "PosTile State";
 
     const string MAT_COLOR = "Color code";
-    const string TILES_2_COUNTER = "Tiles 2 counter";
-
+    const string TILES_COUNTER = "Tiles 2 counter";
+    const string TILES_CAPACITY = "Tiles capacity";
+    
     public static void SetPosTileState(int state)
     {   
         PlayerPrefs.SetInt(POS_TILE_NULL, state);
@@ -66,13 +67,24 @@ public class PlayerPrefsController : MonoBehaviour
         return PlayerPrefsX.GetColor(MAT_COLOR);
     }
 //testing purposes
-    public static void SetTiles2Counter(int num)
+    public static void SetTilesCounter(int num)
     {
-        PlayerPrefs.SetInt(TILES_2_COUNTER, num);
+        PlayerPrefs.SetInt(TILES_COUNTER, num);
     }
 
-    public static int GetTiles2Counter()
+    public static int GetTilesCounter()
     {
-        return PlayerPrefs.GetInt(TILES_2_COUNTER);
+        return PlayerPrefs.GetInt(TILES_COUNTER);
+    }
+
+    //set / get  tiles capacity
+    public static void SetTilesCapacity(int num)
+    {
+        PlayerPrefs.SetInt(TILES_CAPACITY, num);
+    }
+
+    public static int GetTilesCapacity()
+    {
+        return PlayerPrefs.GetInt(TILES_CAPACITY);
     }
 }

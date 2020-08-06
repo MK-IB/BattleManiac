@@ -16,8 +16,7 @@ GameObject:
   - component: {fileID: 2584975924208741198}
   - component: {fileID: 2584975924208740529}
   - component: {fileID: 2584975924208740528}
-  - component: {fileID: 6529500394259812348}
-  - component: {fileID: 1442487677}
+  - component: {fileID: 8951002813568018682}
   m_Layer: 0
   m_Name: BATTLE CONTROLLER
   m_TagString: Untagged
@@ -167,19 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diamondText: {fileID: 0}
   diamondsImgAnimator: {fileID: 0}
---- !u!114 &6529500394259812348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2584975924208741192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0cd4b4469cacc47ad35c6636ce2b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1442487677
+--- !u!114 &8951002813568018682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

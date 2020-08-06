@@ -164,7 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc05b7243f624f449ef41aaae2c9a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamondText: {fileID: 0}
+  mainDiamondCounter: {fileID: 0}
+  skinDiamondCounter: {fileID: 0}
   diamondsImgAnimator: {fileID: 0}
 --- !u!114 &8951002813568018682
 MonoBehaviour:

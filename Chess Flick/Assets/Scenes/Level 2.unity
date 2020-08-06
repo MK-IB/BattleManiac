@@ -238,11 +238,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LOSE CANVAS
       objectReference: {fileID: 0}
+    - target: {fileID: 5365603453823252778, guid: d9a6d0077134eb54d93a7dab380404f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8624458779288757281, guid: d9a6d0077134eb54d93a7dab380404f8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2584975924525480626}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a6d0077134eb54d93a7dab380404f8, type: 3}
 --- !u!1 &123681115
@@ -2442,18 +2447,6 @@ PrefabInstance:
       objectReference: {fileID: 1800028883}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
---- !u!114 &2584975924525480626 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6529500394259812348, guid: d6f32ba4e4f75534f94f822917c8ecf1,
-    type: 3}
-  m_PrefabInstance: {fileID: 2584975924525480625}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0cd4b4469cacc47ad35c6636ce2b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3764877704117118410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2675,6 +2668,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797223121184261641, guid: 71e8f1c063253ae4a922f016261a2e01,
+        type: 3}
+      propertyPath: m_text
+      value: LEVEL 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797223121184261641, guid: 71e8f1c063253ae4a922f016261a2e01,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797223121184261641, guid: 71e8f1c063253ae4a922f016261a2e01,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3797223121454235367, guid: 71e8f1c063253ae4a922f016261a2e01,
         type: 3}

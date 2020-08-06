@@ -4,7 +4,8 @@ using UnityEngine;
 public class DiamondsCounter : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshProUGUI diamondText;
+    public TextMeshProUGUI mainDiamondCounter;
+    public TextMeshProUGUI skinDiamondCounter;
     public Animator diamondsImgAnimator;
     private int diamonds = 0;
 
@@ -17,7 +18,8 @@ public class DiamondsCounter : MonoBehaviour
 
   private void UpdateDisplay()
   {
-      diamondText.SetText(PlayerPrefsController.GetDiamonds().ToString());
+      mainDiamondCounter.SetText(PlayerPrefsController.GetDiamonds().ToString());
+      skinDiamondCounter.SetText(PlayerPrefsController.GetDiamonds().ToString());
   }
 
   public bool HaveEnoughDiamonds(int amount)

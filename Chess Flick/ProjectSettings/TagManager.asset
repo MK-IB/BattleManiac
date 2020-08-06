@@ -12,6 +12,7 @@ TagManager:
   - playerPawn
   - cube
   - diamondCounter
+  - ground
   layers:
   - Default
   - TransparentFX

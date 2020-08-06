@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3670345029550518803}
   - component: {fileID: -2566832494341503630}
   - component: {fileID: -7460745822482330416}
+  - component: {fileID: -6407572059225665851}
+  - component: {fileID: 4037686605047574764}
   m_Layer: 0
   m_Name: PlayerPawn
   m_TagString: playerPawn
@@ -129,6 +131,30 @@ MonoBehaviour:
   power: 1000
   maxDrag: 50
   rb: {fileID: -2566832494341503630}
+--- !u!114 &-6407572059225665851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741800359494019860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebe07aa659187a4880c8a8722ac1b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4037686605047574764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741800359494019860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f4947f9030f7642944c4af60572df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7131985810942541006
 GameObject:
   m_ObjectHideFlags: 0

@@ -136,12 +136,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a472ecb67d823be4693600bf60aebd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pawnList: []
-  posTile:
+  tiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   pawn: {fileID: 4741800359494019860, guid: cb784c309d870a14283573b86e963b56, type: 3}
-  numOfPawnsBought: 0
   playersMat: {fileID: 2100000, guid: 1279339fbc9a2e0478dcc365d8fce736, type: 2}
   grad1: {fileID: 2800000, guid: 7dfb08553990dd34285486c53cd31db1, type: 3}
   grad2: {fileID: 2800000, guid: d9ee31cea5e0c1c4ba4a0ab783911d56, type: 3}

@@ -1,6 +1,5 @@
-﻿ using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEditor;
 
 public class PlayerPrefsController : MonoBehaviour
 {
@@ -54,7 +53,13 @@ public class PlayerPrefsController : MonoBehaviour
 
     public static void ResetAll()
     {
-        PlayerPrefs.DeleteAll();
+       if (EditorUtility.DisplayDialog("Delete all editor preferences.",
+            "Are you sure you want to delete all the editor preferences? " +
+            "This action cannot be undone.", "Yes", "No"))
+        {
+            Debug.Log("yes");
+            EditorPrefs.DeleteAll();
+        }
     }
 
     public static void SetMatColor(Color color)

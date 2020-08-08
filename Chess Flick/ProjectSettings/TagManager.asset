@@ -13,6 +13,7 @@ TagManager:
   - cube
   - diamondCounter
   - ground
+  - sphere
   layers:
   - Default
   - TransparentFX

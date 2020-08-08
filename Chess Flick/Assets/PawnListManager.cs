@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class PawnListManager : MonoBehaviour
 {
-   public List<GameObject> pawnList;
-   public List<Transform> posTile;
+    private List<GameObject> pawns;
+    public List<GameObject> tiles;
    public GameObject pawn;
 
    private DiamondsCounter diamondsCounter;
-   public int numOfPawnsBought = 0;
+   private int numOfPawnsBought;
+   private int tilesCapacity;
+   private int tilesCounter;
+
+   private bool firstTimePawnAddition = true;
+    private bool firstTimeTileAddition = true;
    private Color matColor;
    
    public Material playersMat;
    public Texture grad1,grad2,grad3,grad4,grad5,grad6,grad7,grad8,grad9;
    private Texture defTexture;
-   private int numTile = 1;
+   
 
     void Start()
     {
         diamondsCounter = FindObjectOfType<DiamondsCounter>();
-        SpawnPawns();
-        Debug.Log("pawns bought:" + PlayerPrefsController.GetNumOfPawnsBought());
+        InstantiatePawns();
+        DisplayTiles();
+        Debug.Log("Pawns bought:" + PlayerPrefsController.GetNumOfPawnsBought());
         playersMat.color = PlayerPrefsController.GetMatColor();
     }
-   public List<GameObject> GetpawnList()
-   {
-       return pawnList;
-   }
+
 
    public void ChangeMatColor(int code)
    {
@@ -120,40 +123,61 @@ public class PawnListManager : MonoBehaviour
    playersMat.mainTexture = defTexture;
    playersMat.color = Color.white;
 }
-    public void SpawnPawns()
+    public void InstantiatePawns()
     {
-       int pawnNum = PlayerPrefsController.GetNumOfPawnsBought();
-       //int posState  = PlayerPrefsController.GetPosTileState();
-
-       if(pawnNum > 0) 
-       {
-           for(int i = 0; i < pawnNum; i++)
-           {
-               Instantiate(pawn, posTile[i].position, Quaternion.identity);
-           }
-       }
+        //numOfPawnsBought = PlayerPrefsController.GetNumOfPawnsBought();
+        numOfPawnsBought = 0;
+        for(int i =0; i < numOfPawnsBought; i++)
+        {
+            Instantiate(pawn, tiles[i].transform.position, Quaternion.identity);
+        }
     }
 
-   public void AdddPawn(int price)
-   {
-       
-       int tileRemain = (posTile.Count - PlayerPrefsController.GetNumOfPawnsBought()) + 1;
-       if(PlayerPrefsController.GetNumOfPawnsBought() == 2)
-            numTile = 0;
+   public void AddPawn()
+    {
+        if(firstTimePawnAddition)
+        {
+            tilesCapacity = 2;
+            firstTimePawnAddition = false;
+        } else tilesCapacity = PlayerPrefsController.GetTilesCapacity();
 
-       if(diamondsCounter.HaveEnoughDiamonds(price) && tileRemain >= 1)
-       {
-           diamondsCounter.SpendDiamonds(price);
-           numOfPawnsBought += 1;
-           PlayerPrefsController.SetNumOfPawnsBought(numOfPawnsBought);
-           int index = Random.Range(0, posTile.Count);
-           if(numTile != 0){
-           GameObject newPawn = Instantiate(pawn, posTile[index].position, Quaternion.identity);
-           pawnList.Add(newPawn);
-           }
-           posTile.RemoveAt(index);
-       }else Debug.Log("Can't add any Pawn");
-       //PlayerPrefsController.NU
-       Debug.Log("Num of pawns=" + pawnList.Count);
-   }
+        if(tilesCapacity > 0)
+        {
+            numOfPawnsBought = PlayerPrefsController.GetNumOfPawnsBought();
+            Instantiate(pawn, tiles[numOfPawnsBought].transform.position, Quaternion.identity);
+            tilesCapacity -= 1;
+            numOfPawnsBought += 1;
+            PlayerPrefsController.SetNumOfPawnsBought(numOfPawnsBought);
+            PlayerPrefsController.SetTilesCapacity(tilesCapacity);
+        }
+    }
+   
+
+   public void AddTile()
+    {
+        if(firstTimeTileAddition)
+        {
+            tilesCounter = 2;
+            firstTimeTileAddition = false;
+        } else tilesCounter = PlayerPrefsController.GetTilesCounter();
+        if(tilesCounter < tiles.Count)
+        {
+            tiles[tilesCounter].SetActive(true);
+            tilesCounter += 1;
+            tilesCapacity += 1;
+            PlayerPrefsController.SetTilesCapacity(tilesCapacity);
+        }else Debug.Log("Tiles out of range");
+
+        PlayerPrefsController.SetTilesCounter(tilesCounter);
+    }
+    //SHOW ALL THE TILES BOUGHT
+    public void DisplayTiles()
+    {
+        tilesCounter = PlayerPrefsController.GetTilesCounter();
+        for(int i = 0; i < tilesCounter; i++)
+        {
+            tiles[i].SetActive(true);
+        }
+
+    }
 }

@@ -5,12 +5,16 @@ using UnityEngine;
 public class LerpTestAnimation : MonoBehaviour
 {
     //public List<GameObject> objects;
-    public List<Transform> objects;
+    private List<GameObject> cubes;
     public Transform target1;
-    public Transform target2;
+    public Transform target3;
+    public List<Transform> target2;
+    public Transform moveRef;
+    
     public float speed;
 
     private float diff = 1f;
+    private float zOffset = 35f;
 
     private Vector3 cubePos;
     void Start()
@@ -22,39 +26,54 @@ public class LerpTestAnimation : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(LerpPosition());
+            StartCoroutine(LerpToTarget1());
             Debug.Log("Lerp should start now");
         }
         
     }
 
-    IEnumerator LerpPosition()
+    //lerping to target 1
+     IEnumerator LerpToTarget1()
     {   
-        foreach(Transform obj in objects)
+        cubes = new List<GameObject>(GameObject.FindGameObjectsWithTag("cube"));
+        cubes.Add(GameObject.FindGameObjectWithTag("sphere"));
+        Vector3 newPos = new Vector3(moveRef.position.x, moveRef.position.y, moveRef.position.z + zOffset);
+        moveRef.position = newPos;
+        for(int i = 0; i < cubes.Count; i++)
         {
-            while((target1.position.x - obj.transform.position.x) > diff)
-             {
-                 obj.transform.position = Vector3.Lerp(obj.transform.position, target1.position, Time.deltaTime * speed );
-                 yield return null;
-             }
-             diff += 1f;  
-        } 
-        StartCoroutine(LerpPosition2());
-        
+            while((target1.transform.position.z - cubes[i].transform.position.z) > diff)
+            {
+                cubes[i].transform.position = Vector3.Lerp(cubes[i].transform.position, target1.transform.position, Time.deltaTime * speed);
+                yield return null;
+            }
+         StartCoroutine(LerpToTarget3());   
+        }
     }
 
-    IEnumerator LerpPosition2()
-    {   
-        diff = 0.5f;
-        foreach(Transform obj in objects)
+    IEnumerator LerpToTarget3()
+    {
+        for(int i = 0; i < cubes.Count; i++)
         {
-            while((target2.position.x - obj.transform.position.x) > diff)
-             {
-                 obj.transform.position = Vector3.Lerp(obj.transform.position, target2.position, Time.deltaTime * speed );
-                 yield return null;
-             }
-             diff += 1f;  
+            while((target3.transform.position.z - cubes[i].transform.position.z) > diff)
+            {
+                cubes[i].transform.position = Vector3.Lerp(cubes[i].transform.position, target3.transform.position, Time.deltaTime * speed);
+                yield return null;
+            }
+         StartCoroutine(LerpToTarget2());   
+        }
 
-            }           
-    } 
+    }
+    IEnumerator LerpToTarget2()
+    {
+        //cubes = new List<GameObject>(GameObject.FindGameObjectsWithTag("cube"));
+        //cubes.Add(GameObject.FindGameObjectWithTag("sphere"));
+           for(int i = 0; i < cubes.Count; i++)
+            {
+            while((target2[i].transform.position.z - cubes[i].transform.position.z) > diff)
+            {
+                cubes[i].transform.position = Vector3.Lerp(cubes[i].transform.position, target2[i].transform.position, Time.deltaTime * speed);
+                yield return null;
+            }
+            }
+    }
 }

@@ -7,16 +7,24 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int sceneToLoad = PlayerPrefsController.GetSavedLevel();
+        Debug.Log("Scene tO load:"+ sceneToLoad);
+        SceneManager.LoadScene(sceneToLoad);
     }
    public void LoadNextLevel()
    {
-        SceneManager.LoadScene(currentSceneIndex + 1);  
-        PlayerPrefsController.SetSavedLevel(currentSceneIndex + 1);
+       int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextScene);  
+        PlayerPrefsController.SetSavedLevel(nextScene);
    }
 
    public void LoadSameLevel()
    {
        SceneManager.LoadScene(currentSceneIndex);
+   }
+
+   public void DeleteAllPrefsData()
+   {
+       PlayerPrefsController.ResetAll();
    }
 }

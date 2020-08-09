@@ -46,7 +46,8 @@ public class LerpTestAnimation : MonoBehaviour
                 cubes[i].transform.position = Vector3.Lerp(cubes[i].transform.position, target1.transform.position, Time.deltaTime * speed);
                 yield return null;
             }
-         StartCoroutine(LerpToTarget3());   
+            diff += 1f;
+        // StartCoroutine(LerpToTarget3());   
         }
     }
 

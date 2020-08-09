@@ -13,7 +13,8 @@ public class PawnsSliding : MonoBehaviour
     public float speed;
 
     public float diff;
-    private float zOffset = 5.09f;
+    private float zOffset = 5.17f;
+    //actual -5.592
 
     private Vector3 cubePos;
     void Start()
@@ -62,11 +63,13 @@ public class PawnsSliding : MonoBehaviour
                 pawns[i].transform.position = Vector3.Lerp(pawns[i].transform.position, target2.transform.position, Time.deltaTime * speed);
                 yield return null;
             }
-         StartCoroutine(LerpToTarget3());   
+            diff += 0.05f;
+         //StartCoroutine(LerpToTarget3());   
         }
+        FindObjectOfType<FollowKing>().enabled = false;
 
     }
-    IEnumerator LerpToTarget3()
+    /*IEnumerator LerpToTarget3()
     {
         //cubes = new List<GameObject>(GameObject.FindGameObjectsWithTag("cube"));
         //cubes.Add(GameObject.FindGameObjectWithTag("sphere"));
@@ -78,5 +81,6 @@ public class PawnsSliding : MonoBehaviour
                 yield return null;
             }
             }
-    }
+        FindObjectOfType<FollowKing>().enabled = false;
+    } */
 }

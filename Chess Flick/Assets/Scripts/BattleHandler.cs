@@ -5,10 +5,8 @@ using UnityEngine.EventSystems;
 
 public class BattleHandler : MonoBehaviour
 {
-   [SerializeField] private Transform player;
+
    [SerializeField] private Transform enemy;
-   [SerializeField] private Transform playerPawn1;
-   [SerializeField] private Transform playerPawn2;
    [SerializeField] private Transform enemyPawn1;
    [SerializeField] private Transform enemyPawn2;
 
@@ -63,10 +61,7 @@ public class BattleHandler : MonoBehaviour
        Vector3 playerPosition = new Vector3(0.594f, 0.054f, -0.697f);
        Vector3 enemyPosition = new Vector3(0.594f, 0.054f, 0.411f);
 
-       Instantiate(player, playerPosition, Quaternion.identity);
        Instantiate(enemy, enemyPosition, Quaternion.identity);
-       Instantiate(playerPawn1, new Vector3(0.081f, 0.0869f, -0.6112f), Quaternion.identity);
-       Instantiate(playerPawn1, new Vector3(1.050f, 0.0869f, -0.6112f), Quaternion.identity);
        Instantiate(enemyPawn1, new Vector3(0.081f, 0.0869f, 0.450f), Quaternion.identity);
        Instantiate(enemyPawn2, new Vector3(1.050f, 0.0869f, 0.450f), Quaternion.identity);
    }

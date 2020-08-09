@@ -6,7 +6,7 @@ public class PawnListManager : MonoBehaviour
 {
     private List<GameObject> pawns;
     public List<GameObject> tiles;
-   public GameObject pawn;
+    public GameObject pawn;
 
    private DiamondsCounter diamondsCounter;
    private int numOfPawnsBought;
@@ -125,8 +125,8 @@ public class PawnListManager : MonoBehaviour
 }
     public void InstantiatePawns()
     {
-        //numOfPawnsBought = PlayerPrefsController.GetNumOfPawnsBought();
-        numOfPawnsBought = 0;
+        numOfPawnsBought = PlayerPrefsController.GetNumOfPawnsBought();
+        //numOfPawnsBought = 0;
         for(int i =0; i < numOfPawnsBought; i++)
         {
             Instantiate(pawn, tiles[i].transform.position, Quaternion.identity);
@@ -140,7 +140,7 @@ public class PawnListManager : MonoBehaviour
             tilesCapacity = 2;
             firstTimePawnAddition = false;
         } else tilesCapacity = PlayerPrefsController.GetTilesCapacity();
-
+        
         if(tilesCapacity > 0)
         {
             numOfPawnsBought = PlayerPrefsController.GetNumOfPawnsBought();

@@ -8,8 +8,8 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         int sceneToLoad = PlayerPrefsController.GetSavedLevel();
-        Debug.Log("Scene tO load:"+ sceneToLoad);
-        SceneManager.LoadScene(sceneToLoad);
+        //Debug.Log("Scene tO load:"+ sceneToLoad);
+        //SceneManager.LoadScene(sceneToLoad);
     }
    public void LoadNextLevel()
    {
@@ -26,5 +26,10 @@ public class LevelController : MonoBehaviour
    public void DeleteAllPrefsData()
    {
        PlayerPrefsController.ResetAll();
+       int num = 0;
+       PlayerPrefsController.SetNumOfPawnsBought(num);
+       PlayerPrefsController.SetTilesCounter(num);
+       PlayerPrefsController.SetSavedLevel(num);
+
    }
 }

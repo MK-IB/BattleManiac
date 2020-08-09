@@ -38,7 +38,7 @@ public class AnimationController : MonoBehaviour
     public void SlabConnectorAnimation()
     {
         SlabAnimator.SetBool("startSlabAnim", true);
-        StartCoroutine(WaitForASec());
+        
         CameraAnimation();
     }
 

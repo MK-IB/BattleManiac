@@ -58,7 +58,7 @@ public class PlayerPrefsController : MonoBehaviour
             "This action cannot be undone.", "Yes", "No"))
         {
             Debug.Log("yes");
-            EditorPrefs.DeleteAll();
+            PlayerPrefs.DeleteAll();
         }
     }
 

@@ -459,6 +459,7 @@ MonoBehaviour:
   - {fileID: 953590023}
   - {fileID: 486983631}
   - {fileID: 585510019}
+  level1UI: {fileID: 0}
 --- !u!114 &131901897 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4451324968213993955, guid: c0f8c047af1b8fa4a8b4ba2e7d13d00d,
@@ -1690,6 +1691,7 @@ MonoBehaviour:
   - {fileID: 953590023}
   - {fileID: 486983631}
   - {fileID: 585510019}
+  level1UI: {fileID: 0}
 --- !u!54 &941137617
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6467,7 +6469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5987885277986675970
 RectTransform:
   m_ObjectHideFlags: 0

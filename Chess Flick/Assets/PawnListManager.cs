@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PawnListManager : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class PawnListManager : MonoBehaviour
 
     void Start()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Current level is" + currentSceneIndex);
+        if(currentSceneIndex == 0)
+            playersMat.color = Color.blue;
         diamondsCounter = FindObjectOfType<DiamondsCounter>();
         InstantiatePawns();
         DisplayTiles();

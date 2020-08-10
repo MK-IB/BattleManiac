@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2584975924208740528}
   - component: {fileID: 8951002813568018682}
   - component: {fileID: 1093305401}
+  - component: {fileID: 398580327}
   m_Layer: 0
   m_Name: BATTLE CONTROLLER
   m_TagString: Untagged
@@ -51,12 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ef1b821c0af4042a0c2aff796018b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3723598571168032815, guid: 694a7ee95a92bbd4d8cc7323417ea703, type: 3}
   enemy: {fileID: 3723598571168032815, guid: cd91726a2648d174ca7741e7e8446400, type: 3}
-  playerPawn1: {fileID: 8616823789493360903, guid: cb784c309d870a14283573b86e963b56,
-    type: 3}
-  playerPawn2: {fileID: 8616823789493360903, guid: cb784c309d870a14283573b86e963b56,
-    type: 3}
   enemyPawn1: {fileID: 8616823789493360903, guid: 23c7a4c893a51e44ab400914a548eeca,
     type: 3}
   enemyPawn2: {fileID: 8616823789493360903, guid: 23c7a4c893a51e44ab400914a548eeca,
@@ -196,5 +192,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target1: {fileID: 0}
   target2: {fileID: 0}
+  target3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   moveRef: {fileID: 0}
-  speed: 0
+  speed: 1
+  diff: 0.1
+--- !u!114 &398580327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5769ab3a89782574f96e4243db4506b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        if(!settingsPanel || !skinSelectionPanel)
+            return;
         settingsPanel.SetActive(false);
         skinSelectionPanel.SetActive(false);
     }

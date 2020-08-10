@@ -18,6 +18,8 @@ public class DiamondsCounter : MonoBehaviour
 
   private void UpdateDisplay()
   {
+      if(!mainDiamondCounter || !skinDiamondCounter)
+        return;
       mainDiamondCounter.SetText(PlayerPrefsController.GetDiamonds().ToString());
       skinDiamondCounter.SetText(PlayerPrefsController.GetDiamonds().ToString());
   }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class FollowKing : MonoBehaviour
 {
 
-    private Vector3 offset = new Vector3(0f, 1.48f, -1.5f);
+    private Vector3 offset = new Vector3(0f, 1.48f, -1.7f);
     public Transform playerKing;
     int currentSceneIndex;
 

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1735518617}
   - component: {fileID: 1458902386192293041}
   - component: {fileID: 2299282986326136039}
+  - component: {fileID: 2125472114655511164}
   m_Layer: 0
   m_Name: PlayerKing
   m_TagString: playerKing
@@ -33,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 430015651424868924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.596, y: -0.003, z: -0.013}
-  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children:
   - {fileID: 1244768018290655212}
   m_Father: {fileID: 0}
@@ -94,7 +95,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430015651424868924}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -173,6 +174,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ebe07aa659187a4880c8a8722ac1b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2125472114655511164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430015651424868924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b027a86d4046e8847824c39a4cc43ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2974462522603593549

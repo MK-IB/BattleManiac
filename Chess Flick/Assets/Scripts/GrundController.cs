@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GrundController : MonoBehaviour
 {
@@ -30,5 +31,8 @@ public class GrundController : MonoBehaviour
         {
             barrier.DOScaleY(offset, speed);
         }
+        if(SceneManager.GetActiveScene().name == "Level 1")
+            return;
+        else FindObjectOfType<BattleHandler>().InitializeSpawning();
     }
 }

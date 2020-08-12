@@ -19,7 +19,7 @@ public class PositionChecker : MonoBehaviour
 
     IEnumerator DestroyThis(GameObject obj)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         Destroy(obj);
     }
 }

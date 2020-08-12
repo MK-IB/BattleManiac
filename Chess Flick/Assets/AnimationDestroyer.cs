@@ -9,7 +9,7 @@ public class AnimationDestroyer : MonoBehaviour
        //disable the animator component of camera
        GetComponent<Animator>().enabled =  false;
        FindObjectOfType<AnimationController>().DestroyTheAnimatedObjects();
-       FindObjectOfType<BattleHandler>().InitializeSpawning();
-       GameObject.FindObjectOfType<GrundController>().ShowUpBarrier();
+       //FindObjectOfType<BattleHandler>().InitializeSpawning();
+       //GameObject.FindObjectOfType<GrundController>().ShowUpBarrier();
    }
 }

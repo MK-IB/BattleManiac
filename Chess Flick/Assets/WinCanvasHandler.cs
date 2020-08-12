@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class WinCanvasHandler : MonoBehaviour
@@ -8,7 +7,38 @@ public class WinCanvasHandler : MonoBehaviour
 
     public void HideWinCanvas()
     {
-        FindObjectOfType<WinnerOrLoser>().HideWinCanvas();
-        FindObjectOfType<LevelController>().LoadNextLevel();
+        if(SceneManager.GetActiveScene().name == "Level 1")
+         {
+           FindObjectOfType<LevelUpController>().ShowLargeGroundCanv();
+         }
+
+         else if(SceneManager.GetActiveScene().name == "Level 3")
+         {
+           FindObjectOfType<LevelUpController>().ShowCircGroundCanv();
+         }
+
+         else if(SceneManager.GetActiveScene().name == "Level 4")
+         {
+           FindObjectOfType<LevelUpController>().ShowLargeBarrierCanv();
+         }
+
+         else if(SceneManager.GetActiveScene().name == "Level 5")
+         {
+           FindObjectOfType<LevelUpController>().ShowGreenEnvCanv();
+         }
+        //LEVEL 7 PENDING
+         else if(SceneManager.GetActiveScene().name == "Level 10")
+         {
+           FindObjectOfType<LevelUpController>().ShowDesertEnvCanv();
+         }
+
+         else if(SceneManager.GetActiveScene().name == "Level 12")
+         {
+           FindObjectOfType<LevelUpController>().ShowPolyGroundCanv();
+         }
+         else{
+             FindObjectOfType<WinnerOrLoser>().HideWinCanvas();
+             FindObjectOfType<LevelController>().LoadNextLevel();
+         }
     }
 }

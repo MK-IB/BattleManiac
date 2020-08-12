@@ -26,16 +26,18 @@ public class WinnerOrLoser : MonoBehaviour
 
    public void WinOrLose(string tag)
     {
-        if(tag == "playerKing" && gameEnded == false)
+        if(tag == "playerKing")
         {
-            gameEnded = true;
             HandleLoseCondition();
         }
 
-        if(tag == "enemyKing" && gameEnded == false)
+        if(tag == "enemyKing" && FindObjectOfType<RoundsController>().finishLineTouched)
         {
-            gameEnded = true;
             HandleWinCondition();
+        }
+        else if(tag == "enemyKing" && FindObjectOfType<RoundsController>().roundCompleted == 1)
+        {
+            
         }
     }
     public void HandleLoseCondition()

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    int currentSceneIndex;
 
     void Start()
     {
@@ -20,7 +19,7 @@ public class LevelController : MonoBehaviour
 
    public void LoadSameLevel()
    {
-       SceneManager.LoadScene(currentSceneIndex);
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
    }
 
    public void DeleteAllPrefsData()

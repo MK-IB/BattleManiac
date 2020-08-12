@@ -28,15 +28,16 @@ public class PawnListManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         Debug.Log("Current level is" + currentSceneIndex);
         if(currentSceneIndex == 0)
-            playersMat.color = Color.blue;
+            playersMat.color = new Color(0.47f, 0.58f, 1f);
+        else playersMat.color = PlayerPrefsController.GetMatColor();
         diamondsCounter = FindObjectOfType<DiamondsCounter>();
         InstantiatePawns();
         DisplayTiles();
         Debug.Log("Pawns bought:" + PlayerPrefsController.GetNumOfPawnsBought());
-        playersMat.color = PlayerPrefsController.GetMatColor();
+        
     }
 
-
+    
    public void ChangeMatColor(int code)
    {
        switch(code)
@@ -136,6 +137,14 @@ public class PawnListManager : MonoBehaviour
         {
             Instantiate(pawn, tiles[i].transform.position, Quaternion.identity);
         }
+    }
+
+    //get the pawns
+    public List<GameObject> GetPawns()
+    {
+        pawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
+        pawns.Add(GameObject.FindGameObjectWithTag("playerKing"));
+        return pawns;
     }
 
    public void AddPawn()

@@ -490,7 +490,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 163650881}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1442487677}
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &163650881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,7 +1550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &409264318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1884,7 +1895,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 501980090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1442487677}
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &501980090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4371,7 +4393,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1068284120}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1442487677}
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1068284120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6479,7 +6512,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1471072661}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1442487677}
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1471072661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6597,7 +6641,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1472736941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1442487677}
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1472736941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6715,7 +6770,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1479134794}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1442487677}
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1479134794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7173,7 +7239,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1554871704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1442487677}
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1554871704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9231,11 +9308,44 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 398580327, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
+      propertyPath: largeGroundCanv
+      value: 
+      objectReference: {fileID: 293426981}
+    - target: {fileID: 398580327, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
+      propertyPath: circGroundCanv
+      value: 
+      objectReference: {fileID: 1239686040}
+    - target: {fileID: 398580327, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
+      propertyPath: polyGroundCanv
+      value: 
+      objectReference: {fileID: 980359860}
+    - target: {fileID: 398580327, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
+      propertyPath: largeBarrierCanv
+      value: 
+      objectReference: {fileID: 556694782}
+    - target: {fileID: 398580327, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
+      propertyPath: greenEnvCanv
+      value: 
+      objectReference: {fileID: 1924315921}
+    - target: {fileID: 398580327, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
+      propertyPath: desertEnvCanv
+      value: 
+      objectReference: {fileID: 1293663338}
+    - target: {fileID: 398580327, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
+      propertyPath: snowEnvCanv
+      value: 
+      objectReference: {fileID: 1619047171}
     - target: {fileID: 2584975924208740528, guid: d6f32ba4e4f75534f94f822917c8ecf1,
         type: 3}
       propertyPath: diamondsImgAnimator
       value: 
       objectReference: {fileID: 168020781}
+    - target: {fileID: 2584975924208740529, guid: d6f32ba4e4f75534f94f822917c8ecf1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2584975924208741192, guid: d6f32ba4e4f75534f94f822917c8ecf1,
         type: 3}
       propertyPath: m_Name

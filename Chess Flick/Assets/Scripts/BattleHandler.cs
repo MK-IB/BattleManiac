@@ -6,13 +6,12 @@ using UnityEngine.EventSystems;
 public class BattleHandler : MonoBehaviour
 {
 
-   [SerializeField] private Transform enemy;
-   [SerializeField] private Transform enemyPawn1;
-   [SerializeField] private Transform enemyPawn2;
 
     private GameObject enemyPointer;
     List<GameObject> playersArray;
-    List<GameObject> enemyArray;
+    public List<GameObject> enemyArray;
+    
+    private List<GameObject> tiles;
 
     private float enemyForcePower;
     private Vector3 playerPosition;
@@ -22,13 +21,15 @@ public class BattleHandler : MonoBehaviour
     private GameObject playerKing;
     private GameObject attackerEnemy;
 
-    public float minPower = 480f;
-    public float maxPower = 550f;
+    public float minPower ;
+    public float maxPower;
     private float drag = 10f;
     private float damping = 100f;
 
     private float groundLevel = -0.5f;
     private float playerKingDist = 0.5f;
+
+    public float zOffset;
 
     private void Awake()
     {
@@ -42,61 +43,65 @@ public class BattleHandler : MonoBehaviour
     }
    public void InitializeSpawning()
    {
-       SpawnCharacters();
+       SpawnEnemies();
    }
 
     public void SetupPlayers()
     {
+        
+        Debug.Log("Setup player is called");
         enemyKing = GameObject.FindWithTag("enemyKing").gameObject;
         playerKing = GameObject.FindWithTag("playerKing").gameObject;
-        playersArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
-        playersArray.Add(playerKing);
-        enemyArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemyPawn"));
-        enemyArray.Add(enemyKing);
         
     }
 
-    private void SpawnCharacters()
+    private void SpawnEnemies()
    {
-       Vector3 playerPosition = new Vector3(0.594f, 0.054f, -0.697f);
-       Vector3 enemyPosition = new Vector3(0.594f, 0.054f, 0.411f);
-
-       Instantiate(enemy, enemyPosition, Quaternion.identity);
-       Instantiate(enemyPawn1, new Vector3(0.081f, 0.0869f, 0.450f), Quaternion.identity);
-       Instantiate(enemyPawn2, new Vector3(1.050f, 0.0869f, 0.450f), Quaternion.identity);
+       playersArray = FindObjectOfType<PawnListManager>().GetPawns();
+        Debug.Log("Enemy array length:" + enemyArray.Count);
+        for(int i = 0; i < enemyArray.Count; i++)
+            {
+                Vector3 pos = new Vector3(playersArray[i].transform.position.x,
+                                            playersArray[i].transform.position.y,
+                                            playersArray[i].transform.position.z + zOffset);
+                Instantiate(enemyArray[i], pos, Quaternion.identity);
+            }
+            SetupPlayers();
    }
 
     public void EnemyTurn()
     {
-        playerPosition = playerKing.transform.position;
+        Debug.Log("Its enemy turn");
         enemyPosition = enemyKing.transform.position;
+        playerPosition = playerKing.transform.position;
 
-        //choose enemy attacker
+        //choose enemy attacker randomly
         int enemyIndex = Random.Range(0, enemyArray.Count);
         attackerEnemy = enemyArray[enemyIndex];
 
         //check if the player King is closer
-        float distFromPlayerKing = Vector3.Distance(attackerEnemy.transform.position, playerKing.transform.position);
+        /*float distFromPlayerKing = Vector3.Distance(attackerEnemy.transform.position, playerKing.transform.position);
         if(distFromPlayerKing <= playerKingDist)
         {
             Vector3 dir = playerKing.transform.position - attackerEnemy.transform.position;
             AttackThePlayer(playerKing, dir);
         }
         else
-        {
+        { */
         //choose player to attack and direction of it
         int playerIndex = Random.Range(0, playersArray.Count);
         GameObject toAttack = playersArray[playerIndex];
         Vector3 dir = toAttack.transform.position - attackerEnemy.transform.position;
         AttackThePlayer(toAttack, dir);
-        }
+        //}
         
     }
     //attack
     void  AttackThePlayer(GameObject toAttack, Vector3 dir)
     {
         float power = Random.Range(minPower, maxPower);
-        attackerEnemy.GetComponent<Rigidbody>().AddForce(dir * power);
+        attackerEnemy.GetComponent<Rigidbody>().AddForce(Vector3.up * power);
+        Debug.Log("Attack script called");
     }
     
    //When Touching UI

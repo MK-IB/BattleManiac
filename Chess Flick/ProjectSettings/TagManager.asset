@@ -17,6 +17,8 @@ TagManager:
   - tile
   - triggerTest
   - finishLine
+  - slab 2
+  - round 1
   layers:
   - Default
   - TransparentFX

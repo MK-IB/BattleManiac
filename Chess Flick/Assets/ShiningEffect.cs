@@ -32,6 +32,6 @@ public class ShiningEffect : MonoBehaviour
         OnComplete(()=> {
             transform.DOScale(new Vector3(1.61f, 1.01f, 1.10f), 0.5f);
             ScaleAnimation();
-        });
+        }).From();
    }
 }

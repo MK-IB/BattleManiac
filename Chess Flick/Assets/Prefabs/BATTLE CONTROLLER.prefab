@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 1093305401}
   - component: {fileID: 398580327}
   - component: {fileID: 7768430437457754296}
+  - component: {fileID: 7854511247523345966}
   m_Layer: 0
   m_Name: BATTLE CONTROLLER
   m_TagString: Untagged
@@ -53,10 +54,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ef1b821c0af4042a0c2aff796018b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyArray:
+  enemies:
   - {fileID: 430015651424868924, guid: cd91726a2648d174ca7741e7e8446400, type: 3}
   - {fileID: 4741800359494019860, guid: 23c7a4c893a51e44ab400914a548eeca, type: 3}
-  - {fileID: 4741800359494019860, guid: 23c7a4c893a51e44ab400914a548eeca, type: 3}
+  - {fileID: 430015651424868924, guid: cd91726a2648d174ca7741e7e8446400, type: 3}
   minPower: 200
   maxPower: 300
   zOffset: 0.9
@@ -72,9 +73,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7ee7d8fec2d274983813b06b67024a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlabAnimator: {fileID: 0}
+  slab1: {fileID: 0}
   CameraAnimator: {fileID: 0}
   mainUI: {fileID: 0}
+  target2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2584975924208741196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +97,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bd27f5c0e37ee48acbd568c0934103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slab2: {fileID: 0}
+  slab3: {fileID: 0}
+  target3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  target4: []
+  target5: []
   winCanvas: {fileID: 0}
   loseCanvas: {fileID: 0}
   winLoseText: {fileID: 0}
@@ -192,19 +215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target1: {fileID: 0}
-  target2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   moveRef: {fileID: 0}
   speed: 5
   diff: 0.1
-  zOffset: 5
 --- !u!114 &398580327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,3 +251,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishLineTouched: 0
   roundCompleted: 0
+--- !u!114 &7854511247523345966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584975924208741192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2b4501c19da8a4fb3f29655740bc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchEffect: {fileID: 0}
+  barrier1:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  barrier2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  barrier3: []
+  level1UI: {fileID: 0}

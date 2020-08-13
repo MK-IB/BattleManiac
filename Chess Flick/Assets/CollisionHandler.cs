@@ -12,7 +12,6 @@ public class CollisionHandler : MonoBehaviour
         else 
         {
             Handheld.Vibrate();   
-            Debug.Log("Particle system will play");
         }
     }
 }

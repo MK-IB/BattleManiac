@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 public class GrundController : MonoBehaviour
 {
     public GameObject touchEffect;
-    public Transform[] barriers;
+    private Transform[] barrier;
+    public Transform[] barrier1;
+    public Transform[] barrier2;
+    public Transform[] barrier3;
     public GameObject level1UI;
 
     private float offset = 0.1f;
@@ -14,25 +17,29 @@ public class GrundController : MonoBehaviour
 
     void Start()
     {
-        if(!level1UI)
-            return;
-        level1UI.SetActive(true);
-    }
-    public void HideLevel1UI()
-    {
-        if(level1UI)
-            level1UI.SetActive(false);
-        ShowUpBarrier();
     }
 
-    public void ShowUpBarrier()
+    public void ShowUpBarrier(int num)
     {
-        foreach(Transform barrier in barriers)
+        switch(num)
         {
-            barrier.DOScaleY(offset, speed);
+            case 1: barrier = barrier1;
+            break;
+
+            case 2: barrier = barrier2;
+            break;
+
+            case 3: barrier = barrier3;
+            break;
+
+            default: break;
+        }
+        foreach(Transform bar in barrier)
+        {
+            bar.DOScaleY(offset, speed);
         }
         if(SceneManager.GetActiveScene().name == "Level 1")
-            return;
+            FindObjectOfType<BattleHandler>().SetupPlayers();
         else FindObjectOfType<BattleHandler>().InitializeSpawning();
     }
 }

@@ -13,13 +13,13 @@ public class PositionChecker : MonoBehaviour
             {
                 FindObjectOfType<WinnerOrLoser>().WinOrLose(gameObject.tag);
             }
-            StartCoroutine(DestroyThis(this.gameObject));
+            DestroyThis(gameObject);
         }
     }
 
-    IEnumerator DestroyThis(GameObject obj)
+    private void DestroyThis(GameObject obj)
     {
-        yield return new WaitForSeconds(1f);
+       
         Destroy(obj);
     }
 }

@@ -1,12 +1,20 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class WinnerOrLoser : MonoBehaviour
 {
     private string winText = "YOU WIN";
     private string loseText = "YOU LOSE";
+
+    public Transform slab2;
+    public Transform slab3;
+
+    public List<GameObject> target3;
+    public List<GameObject> target4;
+    public List<GameObject> target5;
 
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private GameObject loseCanvas;
@@ -18,6 +26,9 @@ public class WinnerOrLoser : MonoBehaviour
     public GameObject crown;
 
     private bool gameEnded = false;
+    private string roundInfo;
+
+    private int barrierNum;
     private void Awake()
     {
         winCanvas.SetActive(false);
@@ -37,8 +48,35 @@ public class WinnerOrLoser : MonoBehaviour
         }
         else if(tag == "enemyKing" && FindObjectOfType<RoundsController>().roundCompleted == 1)
         {
-            
+            //show the RPOUND COMPLETED UI
+            FindObjectOfType<UIManager>().ShowRoun1dCompleteUI();
         }
+
+         else if(tag == "enemyKing" && FindObjectOfType<RoundsController>().roundCompleted == 2)
+        {
+            roundInfo = "Round 2 Complete";
+            FindObjectOfType<UIManager>().ShowRound2CompleteUI();
+
+           
+        }
+    }
+
+    public void ProceedRound2()
+    {
+        //start slab 2 animation + slide pawns to target 3
+        FindObjectOfType<FollowKing>().enabled = true;
+        FindObjectOfType<BattleHandler>().DestroyTheEnemies();
+        barrierNum = 2;
+        FindObjectOfType<AnimationController>().SlabExpandAnimation(slab2, target3, barrierNum);
+    }
+
+    public void ProceedRound3()
+    {
+         //start slab 2 animation + slide pawns to target 3
+        FindObjectOfType<FollowKing>().enabled = true;
+        FindObjectOfType<BattleHandler>().DestroyTheEnemies();
+        barrierNum = 3;
+        FindObjectOfType<AnimationController>().SlabExpandAnimation(slab3, target4, barrierNum);
     }
     public void HandleLoseCondition()
     {

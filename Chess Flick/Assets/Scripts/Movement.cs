@@ -97,7 +97,7 @@ public class Movement : MonoBehaviour
         sprite.GetComponent<MeshRenderer>().enabled = false;
         }
         Debug.Log("Before EnemyTurn()");
-        FindObjectOfType<BattleHandler>().EnemyTurn();
+         FindObjectOfType<BattleHandler>().EnemyTurn();
         Debug.Log("After EnemyTurn()");
         //state = BattleState.ENEMYTURN;
         //StartCoroutine(MakeEnemyTurn());

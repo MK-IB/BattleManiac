@@ -6,7 +6,6 @@ public class PawnsSliding : MonoBehaviour
 {
     private List<GameObject> pawns;
     public Transform target1;
-    public List<GameObject> target2;
     public Transform moveRef;
     
     public float speed;
@@ -19,9 +18,7 @@ public class PawnsSliding : MonoBehaviour
     private Vector3 cubePos;
     void Start()
     {
-       pawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
-       pawns.Add(GameObject.FindGameObjectWithTag("playerKing"));
-       j = pawns.Count - 1;
+       
         
     }
     public List<GameObject> GetPawnList()
@@ -35,40 +32,31 @@ public class PawnsSliding : MonoBehaviour
     }
 
     //FLOW CAME FROM THE SLAB ANIM EVENT
-    public void SlideNow()
+   public void SlideNow(List<GameObject> target, int barrierNum)
     {
-        StartCoroutine(LerpToTarget2());
-    }
-    //lerping to target 1
-     IEnumerator LerpToTarget1()
-    {   
-        //moveRef.GetComponent<SpriteRenderer>().enabled = false;
-        for(int i = 0; i < pawns.Count; i++)
-        {
-            while((target1.transform.position.z - pawns[i].transform.position.z) > diff)
-            {
-                pawns[i].transform.position = Vector3.MoveTowards(pawns[i].transform.position, target1.transform.position, Time.deltaTime * speed);
-                yield return null;
-            }
-         StartCoroutine(LerpToTarget2());   
-        }
-    }
+        pawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
+       pawns.Add(GameObject.FindGameObjectWithTag("playerKing"));
+        j = pawns.Count-1;
+        FindObjectOfType<FollowKing>().enabled = true;
+        StopCoroutine("SlideToTarget");
+        StartCoroutine(SlideToTarget(pawns, target, barrierNum));
+    } 
 
-    
-    IEnumerator LerpToTarget2()
-    {
+        //dont call this after any enum, will cause unusual faster execution
+    public IEnumerator SlideToTarget(List<GameObject> pawns, List<GameObject> target, int barrierNum)
+    {  
            for(int i = 0; i < pawns.Count; i++)
             {
-            while((target2[j].transform.position.z - pawns[i].transform.position.z) > diff)
+            while((target[j].transform.position.z - pawns[i].transform.position.z) > diff)
             {
-                pawns[i].transform.position = Vector3.MoveTowards(pawns[i].transform.position, target2[j].transform.position, Time.deltaTime * speed);
+                pawns[i].transform.position = Vector3.MoveTowards(pawns[i].transform.position, target[j].transform.position, Time.deltaTime * speed);
                 yield return null;
             }
             j--;
             }
                 FindObjectOfType<FollowKing>().enabled = false;
-            FindObjectOfType<AnimationController>().DestroyTheAnimatedObjects();
-            GameObject.FindObjectOfType<GrundController>().ShowUpBarrier();
+                FindObjectOfType<BattleHandler>().SetTiles(target);
+            GameObject.FindObjectOfType<GrundController>().ShowUpBarrier(barrierNum);
         
     }
 }

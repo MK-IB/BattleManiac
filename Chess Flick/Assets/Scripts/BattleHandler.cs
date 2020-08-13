@@ -1,6 +1,7 @@
 ﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class BattleHandler : MonoBehaviour
@@ -9,7 +10,8 @@ public class BattleHandler : MonoBehaviour
 
     private GameObject enemyPointer;
     List<GameObject> playersArray;
-    public List<GameObject> enemyArray;
+    public List<GameObject> enemies;
+    private List<GameObject> enemyArray;
     
     private List<GameObject> tiles;
 
@@ -37,43 +39,59 @@ public class BattleHandler : MonoBehaviour
          //enemyPointer.GetComponent<MeshRenderer>().enabled = false;
     }
 
+    void Start()
+    {
+        enemyArray = new List<GameObject>();
+    }
     void Update()
     {
         
     }
    public void InitializeSpawning()
    {
-       SpawnEnemies();
+       SetupPlayers();
    }
 
     public void SetupPlayers()
     {
+        playersArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
+        playersArray.Add(GameObject.FindGameObjectWithTag("playerKing"));
+        //enemyArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemyPawn"));
+        //enemyArray.Add(GameObject.FindGameObjectWithTag("enemyKing"));
         
-        Debug.Log("Setup player is called");
-        enemyKing = GameObject.FindWithTag("enemyKing").gameObject;
-        playerKing = GameObject.FindWithTag("playerKing").gameObject;
+        if(SceneManager.GetActiveScene().name == "Level 1")
+            return;
+        else SpawnEnemies();
         
+    }
+
+    public void SetTiles(List<GameObject> tilePos)
+    {
+        tiles = tilePos;
     }
 
     private void SpawnEnemies()
    {
-       playersArray = FindObjectOfType<PawnListManager>().GetPawns();
-        Debug.Log("Enemy array length:" + enemyArray.Count);
-        for(int i = 0; i < enemyArray.Count; i++)
+        Debug.Log("Enemy array length:" + enemies.Count);
+        Debug.Log("Tiles lenght:" + tiles.Count);
+        for(int i = 0; i < enemies.Count; i++)
             {
-                Vector3 pos = new Vector3(playersArray[i].transform.position.x,
-                                            playersArray[i].transform.position.y,
-                                            playersArray[i].transform.position.z + zOffset);
-                Instantiate(enemyArray[i], pos, Quaternion.identity);
+                Vector3 pos = new Vector3(tiles[i].transform.position.x,
+                                            tiles[i].transform.position.y,
+                                            tiles[i].transform.position.z + zOffset);
+                GameObject temp = Instantiate(enemies[i], pos, Quaternion.identity);
+                enemyArray.Add(temp);
             }
-            SetupPlayers();
    }
 
     public void EnemyTurn()
     {
+        playersArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
+        playersArray.Add(GameObject.FindGameObjectWithTag("playerKing"));
+        enemyKing = GameObject.FindGameObjectWithTag("enemyKing");
         Debug.Log("Its enemy turn");
         enemyPosition = enemyKing.transform.position;
-        playerPosition = playerKing.transform.position;
+        //playerPosition = playerKing.transform.position;
 
         //choose enemy attacker randomly
         int enemyIndex = Random.Range(0, enemyArray.Count);
@@ -100,10 +118,19 @@ public class BattleHandler : MonoBehaviour
     void  AttackThePlayer(GameObject toAttack, Vector3 dir)
     {
         float power = Random.Range(minPower, maxPower);
-        attackerEnemy.GetComponent<Rigidbody>().AddForce(Vector3.up * power);
+        attackerEnemy.GetComponent<Rigidbody>().AddForce(dir * power);
         Debug.Log("Attack script called");
     }
     
+
+    public void DestroyTheEnemies()
+    {
+        if(enemyArray == null) return;
+        foreach(GameObject obj in enemyArray)
+        {
+            Destroy(obj);
+        }
+    }
    //When Touching UI
     /*private bool IsPointerOverUIObject()
     {

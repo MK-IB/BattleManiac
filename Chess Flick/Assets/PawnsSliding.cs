@@ -54,8 +54,8 @@ public class PawnsSliding : MonoBehaviour
             }
             j--;
             }
-                FindObjectOfType<FollowKing>().enabled = false;
-                FindObjectOfType<BattleHandler>().SetTiles(target);
+            FindObjectOfType<FollowKing>().enabled = false;
+            FindObjectOfType<BattleHandler>().SetTiles(target);
             GameObject.FindObjectOfType<GrundController>().ShowUpBarrier(barrierNum);
         
     }

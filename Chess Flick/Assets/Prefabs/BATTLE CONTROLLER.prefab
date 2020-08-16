@@ -57,9 +57,10 @@ MonoBehaviour:
   enemies:
   - {fileID: 430015651424868924, guid: cd91726a2648d174ca7741e7e8446400, type: 3}
   - {fileID: 4741800359494019860, guid: 23c7a4c893a51e44ab400914a548eeca, type: 3}
-  - {fileID: 430015651424868924, guid: cd91726a2648d174ca7741e7e8446400, type: 3}
-  minPower: 200
-  maxPower: 300
+  - {fileID: 4741800359494019860, guid: 23c7a4c893a51e44ab400914a548eeca, type: 3}
+  level1Tiles: []
+  minPower: 400
+  maxPower: 500
   zOffset: 0.9
 --- !u!114 &2584975924208741197
 MonoBehaviour:
@@ -76,15 +77,7 @@ MonoBehaviour:
   slab1: {fileID: 0}
   CameraAnimator: {fileID: 0}
   mainUI: {fileID: 0}
-  target2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  target2: []
 --- !u!114 &2584975924208741196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,25 +92,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slab2: {fileID: 0}
   slab3: {fileID: 0}
-  target3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  target3: []
   target4: []
   target5: []
   winCanvas: {fileID: 0}
   loseCanvas: {fileID: 0}
   winLoseText: {fileID: 0}
-  playerKing: {fileID: 430015651424868924, guid: 694a7ee95a92bbd4d8cc7323417ea703,
-    type: 3}
-  enemyKing: {fileID: 430015651424868924, guid: cd91726a2648d174ca7741e7e8446400,
-    type: 3}
-  crown: {fileID: 5930260170011490863, guid: fcd6dcb4bf3dd904f97d63bd5a08209b, type: 3}
+  playerKing: {fileID: 0}
+  enemyKing: {fileID: 0}
+  crown: {fileID: 0}
 --- !u!114 &2584975924208741199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +115,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 0}
   skinSelectionPanel: {fileID: 0}
+  round1CompleteUIPanel: {fileID: 0}
+  round2CompleteUIPanel: {fileID: 0}
   levelText: {fileID: 0}
+  roundInfo: {fileID: 0}
 --- !u!114 &2584975924208741198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,8 +202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target1: {fileID: 0}
   moveRef: {fileID: 0}
-  speed: 5
-  diff: 0.1
+  speed: 3
+  diff: 0
 --- !u!114 &398580327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,20 +263,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  barrier2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  barrier2: []
   barrier3: []
   level1UI: {fileID: 0}

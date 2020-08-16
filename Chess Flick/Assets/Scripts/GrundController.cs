@@ -11,9 +11,11 @@ public class GrundController : MonoBehaviour
     public Transform[] barrier3;
     public GameObject level1UI;
 
-    private float offset = 0.1f;
+    private float finalScale = 0.1f;
+    private float currentScale;
     private float speed = 1.5f;
 
+    Tweener scaleTween;
 
     void Start()
     {
@@ -36,10 +38,20 @@ public class GrundController : MonoBehaviour
         }
         foreach(Transform bar in barrier)
         {
-            bar.DOScaleY(offset, speed);
+            bar.DOScaleY(finalScale, speed);
+            currentScale = bar.transform.localScale.y;
+            
         }
-        if(SceneManager.GetActiveScene().name == "Level 1")
-            FindObjectOfType<BattleHandler>().SetupPlayers();
-        else FindObjectOfType<BattleHandler>().InitializeSpawning();
+        
+        FindObjectOfType<BattleHandler>().InitializeSpawning();
+        FindObjectOfType<AnimationController>().DestroySlab();
+    }
+
+    public void HideBarrier()
+    {
+        foreach(Transform bar in barrier)
+        {
+            scaleTween = bar.DOScaleY(finalScale, speed);
+        }
     }
 }

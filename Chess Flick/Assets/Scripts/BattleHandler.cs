@@ -14,6 +14,7 @@ public class BattleHandler : MonoBehaviour
     private List<GameObject> enemyArray;
     
     private List<GameObject> tiles;
+    public List<GameObject> level1Tiles;
 
     private float enemyForcePower;
     private Vector3 playerPosition;
@@ -22,6 +23,7 @@ public class BattleHandler : MonoBehaviour
     private GameObject enemyKing;
     private GameObject playerKing;
     private GameObject attackerEnemy;
+    private GameObject toAttack;
 
     public float minPower ;
     public float maxPower;
@@ -42,6 +44,10 @@ public class BattleHandler : MonoBehaviour
     void Start()
     {
         enemyArray = new List<GameObject>();
+        if(SceneManager.GetActiveScene().name == "Level 1")
+        {
+            tiles = level1Tiles;
+        }
     }
     void Update()
     {
@@ -58,10 +64,7 @@ public class BattleHandler : MonoBehaviour
         playersArray.Add(GameObject.FindGameObjectWithTag("playerKing"));
         //enemyArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemyPawn"));
         //enemyArray.Add(GameObject.FindGameObjectWithTag("enemyKing"));
-        
-        if(SceneManager.GetActiveScene().name == "Level 1")
-            return;
-        else SpawnEnemies();
+        SpawnEnemies();
         
     }
 
@@ -86,7 +89,13 @@ public class BattleHandler : MonoBehaviour
 
     public void EnemyTurn()
     {
-        playersArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
+        //INITIALIZE THE PLAYERS AGAIN TO AVOID NULL EXCEPTION
+        if(GameObject.FindGameObjectWithTag("playerPawn"))
+            playersArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
+        else {
+            playersArray = new List<GameObject>();
+            playersArray.Add(GameObject.FindGameObjectWithTag("playerKing"));
+        }
         playersArray.Add(GameObject.FindGameObjectWithTag("playerKing"));
         enemyKing = GameObject.FindGameObjectWithTag("enemyKing");
         Debug.Log("Its enemy turn");
@@ -107,8 +116,9 @@ public class BattleHandler : MonoBehaviour
         else
         { */
         //choose player to attack and direction of it
+        
         int playerIndex = Random.Range(0, playersArray.Count);
-        GameObject toAttack = playersArray[playerIndex];
+        toAttack = playersArray[playerIndex];
         Vector3 dir = toAttack.transform.position - attackerEnemy.transform.position;
         AttackThePlayer(toAttack, dir);
         //}

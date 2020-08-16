@@ -29,10 +29,13 @@ public class WinnerOrLoser : MonoBehaviour
     private string roundInfo;
 
     private int barrierNum;
+    private int counter;
+
     private void Awake()
     {
         winCanvas.SetActive(false);
         loseCanvas.SetActive(false);
+        counter = 1;
     }
 
    public void WinOrLose(string tag)
@@ -49,20 +52,33 @@ public class WinnerOrLoser : MonoBehaviour
         else if(tag == "enemyKing" && FindObjectOfType<RoundsController>().roundCompleted == 1)
         {
             //show the RPOUND COMPLETED UI
-            FindObjectOfType<UIManager>().ShowRoun1dCompleteUI();
+            FindObjectOfType<MyUIManager>().ShowRoundCompleteUI();
         }
 
          else if(tag == "enemyKing" && FindObjectOfType<RoundsController>().roundCompleted == 2)
         {
             roundInfo = "Round 2 Complete";
-            FindObjectOfType<UIManager>().ShowRound2CompleteUI();
+            FindObjectOfType<MyUIManager>().ShowRound2CompleteUI();
 
            
         }
     }
 
+    public void NextRoundManager()
+    {
+        counter += 1;
+        if(counter == 2)
+        {
+            ProceedRound2();
+        }
+        else if(counter == 3)
+        {
+            ProceedRound3();
+        }
+    }
     public void ProceedRound2()
     {
+        FindObjectOfType<MyUIManager>().HideRoundCompleteUI();
         //start slab 2 animation + slide pawns to target 3
         FindObjectOfType<FollowKing>().enabled = true;
         FindObjectOfType<BattleHandler>().DestroyTheEnemies();

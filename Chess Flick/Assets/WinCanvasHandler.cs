@@ -26,7 +26,11 @@ public class WinCanvasHandler : MonoBehaviour
          {
            FindObjectOfType<LevelUpController>().ShowGreenEnvCanv();
          }
-        //LEVEL 7 PENDING
+        
+        else if(SceneManager.GetActiveScene().name == "Level 7")
+         {
+           FindObjectOfType<LevelUpController>().ShowLargeGroundCanv();
+         }
          else if(SceneManager.GetActiveScene().name == "Level 10")
          {
            FindObjectOfType<LevelUpController>().ShowDesertEnvCanv();

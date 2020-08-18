@@ -7821,6 +7821,10 @@ PrefabInstance:
       propertyPath: moveRef
       value: 
       objectReference: {fileID: 81684775}
+    - target: {fileID: 1093305401, guid: d6f32ba4e4f75534f94f822917c8ecf1, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2584975924208740528, guid: d6f32ba4e4f75534f94f822917c8ecf1,
         type: 3}
       propertyPath: mainDiamondCounter

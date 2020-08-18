@@ -35,9 +35,14 @@ public class AnimationController : MonoBehaviour
          
     }
 
-    private void HideMainUI()
+    public void HideMainUI()
     {
        mainUI.SetActive(false);
+    }
+
+    public void ShowMainUI()
+    {
+       mainUI.SetActive(true);
     }
      
      //animating the players towards the play ground

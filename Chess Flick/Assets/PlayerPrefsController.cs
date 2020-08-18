@@ -53,13 +53,7 @@ public class PlayerPrefsController : MonoBehaviour
 
     public static void ResetAll()
     {
-       if (EditorUtility.DisplayDialog("Delete all editor preferences.",
-            "Are you sure you want to delete all the editor preferences? " +
-            "This action cannot be undone.", "Yes", "No"))
-        {
-            Debug.Log("yes");
             PlayerPrefs.DeleteAll();
-        }
     }
 
     public static void SetMatColor(Color color)

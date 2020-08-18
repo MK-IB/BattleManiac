@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     {
         /*if(state != BattleState.PLAYERTURN)
             return; */
-        if(EventSystem.current.IsPointerOverGameObject())
+        if(IsPointerOverUIObject())
         {
             return ;    
         }
@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour
     }
     void OnMouseDrag()
     {
-        if(EventSystem.current.IsPointerOverGameObject())
+        if(IsPointerOverUIObject())
         {
             return;
         }
@@ -78,7 +78,7 @@ public class Movement : MonoBehaviour
     {
         /*if(state != BattleState.PLAYERTURN)
             return; */
-        if(EventSystem.current.IsPointerOverGameObject())
+        if(IsPointerOverUIObject())
         {
             return;
         }
@@ -106,9 +106,17 @@ public class Movement : MonoBehaviour
         
     }
 
-    IEnumerator MakeEnemyTurn()
+    /*IEnumerator MakeEnemyTurn()
     {
         yield return new WaitForSeconds(1.2f);
         
-    }
+    } */
+
+    private bool IsPointerOverUIObject() {
+     PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+     eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+     List<RaycastResult> results = new List<RaycastResult>();
+     EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+     return results.Count > 0;
+ }
 }

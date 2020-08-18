@@ -6,12 +6,11 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
-        int sceneToLoad = PlayerPrefsController.GetSavedLevel();
-        //Debug.Log("Scene tO load:"+ sceneToLoad);
-        //SceneManager.LoadScene(sceneToLoad);
+        
     }
    public void LoadNextLevel()
    {
+       //FindObjectOfType<Admob>().ShowInterstitialAd();
        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextScene);  
         PlayerPrefsController.SetSavedLevel(nextScene);

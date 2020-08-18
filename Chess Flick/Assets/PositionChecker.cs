@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PositionChecker : MonoBehaviour
 {
-
+    public GameObject deathFX;
     void FixedUpdate()
     {
         if(transform.position.y <= -1.50f)   
@@ -19,7 +19,7 @@ public class PositionChecker : MonoBehaviour
 
     private void DestroyThis(GameObject obj)
     {
-       
+       Instantiate(deathFX, obj.transform.position, Quaternion.identity);
         Destroy(obj);
     }
 }

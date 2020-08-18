@@ -7,11 +7,5 @@ public class CollisionHandler : MonoBehaviour
    
     void OnCollisionEnter(Collision collider)
     {
-        if(collider.gameObject.tag == "ground" || collider.gameObject.tag == "slab")
-            return;
-        else 
-        {
-            Handheld.Vibrate();   
-        }
     }
 }

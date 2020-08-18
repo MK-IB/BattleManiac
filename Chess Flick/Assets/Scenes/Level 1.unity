@@ -769,10 +769,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 720, y: 1280}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1573,7 +1573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -4178,7 +4178,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd2d9a51e805b334993c12182d04bccb, type: 3}
   m_Name: 
@@ -4342,7 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -5562,7 +5562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -5894,7 +5894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -7664,7 +7664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -9142,7 +9142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -9782,35 +9782,10 @@ PrefabInstance:
       propertyPath: diamondsImgAnimator
       value: 
       objectReference: {fileID: 168020781}
-    - target: {fileID: 2584975924208740529, guid: d6f32ba4e4f75534f94f822917c8ecf1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2584975924208741192, guid: d6f32ba4e4f75534f94f822917c8ecf1,
         type: 3}
       propertyPath: m_Name
       value: BATTLE CONTROLLER
-      objectReference: {fileID: 0}
-    - target: {fileID: 2584975924208741194, guid: d6f32ba4e4f75534f94f822917c8ecf1,
-        type: 3}
-      propertyPath: level1Tiles.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2584975924208741194, guid: d6f32ba4e4f75534f94f822917c8ecf1,
-        type: 3}
-      propertyPath: minPower
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 2584975924208741194, guid: d6f32ba4e4f75534f94f822917c8ecf1,
-        type: 3}
-      propertyPath: maxPower
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 2584975924208741194, guid: d6f32ba4e4f75534f94f822917c8ecf1,
-        type: 3}
-      propertyPath: zOffset
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2584975924208741194, guid: d6f32ba4e4f75534f94f822917c8ecf1,
         type: 3}
@@ -9852,12 +9827,6 @@ PrefabInstance:
       propertyPath: level1Tiles.Array.data[7]
       value: 
       objectReference: {fileID: 1617543719}
-    - target: {fileID: 2584975924208741194, guid: d6f32ba4e4f75534f94f822917c8ecf1,
-        type: 3}
-      propertyPath: enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 4741800359494019860, guid: 23c7a4c893a51e44ab400914a548eeca,
-        type: 3}
     - target: {fileID: 2584975924208741195, guid: d6f32ba4e4f75534f94f822917c8ecf1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9938,15 +9907,15 @@ PrefabInstance:
       propertyPath: mainUI
       value: 
       objectReference: {fileID: 409264317}
+    - target: {fileID: 2584975924208741199, guid: d6f32ba4e4f75534f94f822917c8ecf1,
+        type: 3}
+      propertyPath: settingsPanel
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7854511247523345966, guid: d6f32ba4e4f75534f94f822917c8ecf1,
         type: 3}
       propertyPath: barrier1.Array.size
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854511247523345966, guid: d6f32ba4e4f75534f94f822917c8ecf1,
-        type: 3}
-      propertyPath: level1UI
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7854511247523345966, guid: d6f32ba4e4f75534f94f822917c8ecf1,
         type: 3}

@@ -1,4 +1,3 @@
-#if UNITY_IOS
 // Copyright (C) 2015 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,6 +11,8 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+#if UNITY_IOS
 
 using System;
 using System.Collections.Generic;
@@ -102,23 +103,7 @@ namespace GoogleMobileAds.iOS
             Marshal.FreeHGlobal(stringPtr);
             return managedString;
         }
-
-        public static List<string> PtrArrayToManagedList(IntPtr arrayPtr, int numOfAssets) {
-            IntPtr[] intPtrArray = new IntPtr[numOfAssets];
-            string[] managedAssetArray = new string[numOfAssets];
-            Marshal.Copy(arrayPtr, intPtrArray, 0, numOfAssets);
-
-            for (int i = 0; i < numOfAssets; i++)
-            {
-                managedAssetArray[i] = Marshal.PtrToStringAuto(intPtrArray[i]);
-                Marshal.FreeHGlobal(intPtrArray[i]);
-            }
-
-            Marshal.FreeHGlobal(arrayPtr);
-            return new List<string>(managedAssetArray);
-        }
     }
 }
+
 #endif
-
-

@@ -23,6 +23,7 @@ namespace GreenLightSudios
     public class AdsManager : MonoBehaviour
     {
         public static AdsManager myAdsManager;
+        private BannerView adBanner;
         private InterstitialAd interstitial;
         private RewardedAd rewardedAd;
 
@@ -51,7 +52,7 @@ namespace GreenLightSudios
         private void Start()
         {
             //initialize 
-            MobileAds.Initialize(initStatus => { });
+           // MobileAds.Initialize(initStatus => { });
 
             RequestInterstitial();
             CreateAndLoadRewardedAd();

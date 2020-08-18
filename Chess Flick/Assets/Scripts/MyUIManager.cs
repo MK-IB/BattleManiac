@@ -23,12 +23,14 @@ public class MyUIManager : MonoBehaviour
     }
     public void ShowSettingsPanel()
     {
+        FindObjectOfType<AnimationController>().HideMainUI();
         settingsPanel.SetActive(true);
     }
 
     public void HideSettingsPanel()
     {
         settingsPanel.SetActive(false);
+        FindObjectOfType<AnimationController>().ShowMainUI();
     }
     public void ShowSkinsPanel()
     {

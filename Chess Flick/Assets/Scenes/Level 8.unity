@@ -1030,7 +1030,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: dc04ec12035f76d47a863d593623c622,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dc04ec12035f76d47a863d593623c622,
         type: 3}
@@ -2048,6 +2048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI CANVAS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797223120164133568, guid: 71e8f1c063253ae4a922f016261a2e01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3797223120164133572, guid: 71e8f1c063253ae4a922f016261a2e01,
         type: 3}
@@ -4336,7 +4341,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: dc04ec12035f76d47a863d593623c622,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dc04ec12035f76d47a863d593623c622,
         type: 3}
@@ -7624,11 +7629,36 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 354488832}
+    - target: {fileID: 468003824310850119, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363498630654540898, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444845475694279526, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553498867668243207, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
     - target: {fileID: 1588522971131057619, guid: d056d0099ac604f4baa4d5138963c62d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 354488832}
+    - target: {fileID: 1868186093459545194, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2029034337488361096, guid: d056d0099ac604f4baa4d5138963c62d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7639,6 +7669,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 354488832}
+    - target: {fileID: 2787261755860360913, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2986527109529150334, guid: d056d0099ac604f4baa4d5138963c62d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7649,6 +7684,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 354488832}
+    - target: {fileID: 3538584549580696661, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3843051140192054741, guid: d056d0099ac604f4baa4d5138963c62d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7664,6 +7704,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 354488832}
+    - target: {fileID: 4472855042057726645, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4766099768371405088, guid: d056d0099ac604f4baa4d5138963c62d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7819,6 +7864,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 354488832}
+    - target: {fileID: 7987445884771705541, guid: d056d0099ac604f4baa4d5138963c62d,
+        type: 3}
+      propertyPath: m_TagString
+      value: gradButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8309152931478214363, guid: d056d0099ac604f4baa4d5138963c62d,
         type: 3}
       propertyPath: m_Name

@@ -32,11 +32,13 @@ public class MyUIManager : MonoBehaviour
             tileBuyButton.interactable = true;
         else tileBuyButton.interactable = false;
         
-        gradButtons = new List<GameObject>(GameObject.FindGameObjectsWithTag("gradButton"));
-        if(SceneManager.GetActiveScene().buildIndex >=14)
-        {
-            foreach(GameObject btn in gradButtons) btn.GetComponent<Button>().interactable = true;
-        } else foreach(GameObject btn in gradButtons) btn.GetComponent<Button>().interactable = false;
+        
+    }
+
+    private void Start()
+    {
+        
+
     }
     public void ShowSettingsPanel()
     {
@@ -53,6 +55,12 @@ public class MyUIManager : MonoBehaviour
     {
         isUIActive = true;
         skinSelectionPanel.SetActive(true);
+        gradButtons = new List<GameObject>(GameObject.FindGameObjectsWithTag("gradButton"));
+        Debug.Log("Grad buttons size:" + gradButtons.Count);
+        if(SceneManager.GetActiveScene().buildIndex >=14)
+        {
+            foreach(GameObject btn in gradButtons) btn.GetComponent<Button>().interactable = true;
+        } else foreach(GameObject btn in gradButtons) btn.GetComponent<Button>().interactable = false;
     }
 
     public void HideSkinsPanel()

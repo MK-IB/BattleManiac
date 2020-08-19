@@ -6,20 +6,18 @@ using UnityEngine.SceneManagement;
 public class FollowKing : MonoBehaviour
 {
 
-    private Vector3 offset = new Vector3(0f, 1.48f, -1.7f);
+    private Vector3 offset = new Vector3(0f, 1.8f, -1.7f);
+    private float offsetZ = -1.7f;
     public Transform playerKing;
     int currentSceneIndex;
 
     void Start()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentSceneIndex == 0)
-            return;
-        else transform.position = playerKing.position + offset;
+        transform.position = new Vector3(transform.position.x, transform.position.y, playerKing.position.z + offsetZ);
     }
 }

@@ -1439,6 +1439,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slab
       objectReference: {fileID: 0}
+    - target: {fileID: 1563982921857768960, guid: f04646b7e648a3c48a47afc297ded74c,
+        type: 3}
+      propertyPath: m_TagString
+      value: slab
+      objectReference: {fileID: 0}
     - target: {fileID: 1563982921857768966, guid: f04646b7e648a3c48a47afc297ded74c,
         type: 3}
       propertyPath: m_LocalPosition.x

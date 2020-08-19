@@ -89,6 +89,10 @@ public class BattleHandler : MonoBehaviour
 
     public void EnemyTurn()
     {
+        if(transform.eulerAngles.x > 45 || transform.eulerAngles.x < -45 ||
+            transform.eulerAngles.z > 45 || transform.eulerAngles.z < -45)
+                {transform.eulerAngles = Vector3.zero;}
+                
         //INITIALIZE THE PLAYERS AGAIN TO AVOID NULL EXCEPTION
         if(GameObject.FindGameObjectWithTag("playerPawn"))
             playersArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));

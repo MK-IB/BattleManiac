@@ -19,6 +19,8 @@ TagManager:
   - finishLine
   - slab 2
   - round 1
+  - FxTemporaire
+  - gradButton
   layers:
   - Default
   - TransparentFX

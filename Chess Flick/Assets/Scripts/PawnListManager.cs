@@ -25,6 +25,7 @@ public class PawnListManager : MonoBehaviour
 
     void Start()
     {
+        pawns = new List<GameObject>();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         Debug.Log("Current level is" + currentSceneIndex);
         if(currentSceneIndex == 0)
@@ -135,18 +136,16 @@ public class PawnListManager : MonoBehaviour
         //numOfPawnsBought = 0;
         for(int i =0; i < numOfPawnsBought; i++)
         {
-            Instantiate(pawn, tiles[i].transform.position, Quaternion.identity);
+            pawns[i] = Instantiate(pawn, tiles[i].transform.position, Quaternion.identity);
         }
     }
 
     //get the pawns
     public List<GameObject> GetPawns()
     {
-        pawns = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
-        pawns.Add(GameObject.FindGameObjectWithTag("playerKing"));
         return pawns;
     }
-
+    
    public void AddPawn()
     {
         if(firstTimePawnAddition)
@@ -158,7 +157,7 @@ public class PawnListManager : MonoBehaviour
         if(tilesCapacity > 0)
         {
             numOfPawnsBought = PlayerPrefsController.GetNumOfPawnsBought();
-            Instantiate(pawn, tiles[numOfPawnsBought].transform.position, Quaternion.identity);
+            pawns.Add(Instantiate(pawn, tiles[numOfPawnsBought].transform.position, Quaternion.identity));
             tilesCapacity -= 1;
             numOfPawnsBought += 1;
             PlayerPrefsController.SetNumOfPawnsBought(numOfPawnsBought);

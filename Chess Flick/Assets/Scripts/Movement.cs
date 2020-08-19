@@ -37,12 +37,16 @@ public class Movement : MonoBehaviour
     {
         /*if(state != BattleState.PLAYERTURN)
             return; */
-        if(IsPointerOverUIObject())
+        if(FindObjectOfType<MyUIManager>().isUIActive)
         {
             return ;    
         }
         else
         {
+            if(transform.eulerAngles.x > 45 || transform.eulerAngles.x < -45 ||
+            transform.eulerAngles.z > 45 || transform.eulerAngles.z < -45)
+                {transform.eulerAngles = Vector3.zero;}
+                
             dragStartPos = Input.mousePosition;
             sprite.GetComponent<MeshRenderer>().enabled = true;
         }
@@ -50,7 +54,7 @@ public class Movement : MonoBehaviour
     }
     void OnMouseDrag()
     {
-        if(IsPointerOverUIObject())
+        if(FindObjectOfType<MyUIManager>().isUIActive)
         {
             return;
         }
@@ -78,7 +82,7 @@ public class Movement : MonoBehaviour
     {
         /*if(state != BattleState.PLAYERTURN)
             return; */
-        if(IsPointerOverUIObject())
+        if(FindObjectOfType<MyUIManager>().isUIActive)
         {
             return;
         }
@@ -96,9 +100,8 @@ public class Movement : MonoBehaviour
         rb.AddForce(-forceDir * power);
         sprite.GetComponent<MeshRenderer>().enabled = false;
         }
-        Debug.Log("Before EnemyTurn()");
          FindObjectOfType<BattleHandler>().EnemyTurn();
-        Debug.Log("After EnemyTurn()");
+        //Debug.Log("After EnemyTurn()");
         //state = BattleState.ENEMYTURN;
         //StartCoroutine(MakeEnemyTurn());
         //state = BattleState.PLAYERTURN;
@@ -112,11 +115,11 @@ public class Movement : MonoBehaviour
         
     } */
 
-    private bool IsPointerOverUIObject() {
+    /*private bool IsPointerOverUIObject() {
      PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
      eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
      List<RaycastResult> results = new List<RaycastResult>();
      EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
      return results.Count > 0;
- }
+    } */
 }

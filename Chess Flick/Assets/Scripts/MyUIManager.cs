@@ -1,5 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MyUIManager : MonoBehaviour
 {
@@ -10,7 +13,11 @@ public class MyUIManager : MonoBehaviour
     [SerializeField] private GameObject round2CompleteUIPanel;
 
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI roundInfo;
+    public Button tileBuyButton;
+
+    public bool isUIActive = false;
+
+    private List<GameObject> gradButtons;
 
     private void Awake()
     {
@@ -20,6 +27,16 @@ public class MyUIManager : MonoBehaviour
         skinSelectionPanel.SetActive(false);
         if(!round1CompleteUIPanel) return;
         round1CompleteUIPanel.SetActive(false);
+
+         if(SceneManager.GetActiveScene().buildIndex >= 9)
+            tileBuyButton.interactable = true;
+        else tileBuyButton.interactable = false;
+        
+        gradButtons = new List<GameObject>(GameObject.FindGameObjectsWithTag("gradButton"));
+        if(SceneManager.GetActiveScene().buildIndex >=14)
+        {
+            foreach(GameObject btn in gradButtons) btn.GetComponent<Button>().interactable = true;
+        } else foreach(GameObject btn in gradButtons) btn.GetComponent<Button>().interactable = false;
     }
     public void ShowSettingsPanel()
     {
@@ -34,17 +51,20 @@ public class MyUIManager : MonoBehaviour
     }
     public void ShowSkinsPanel()
     {
+        isUIActive = true;
         skinSelectionPanel.SetActive(true);
     }
 
     public void HideSkinsPanel()
     {
+        isUIActive = false;
         skinSelectionPanel.SetActive(false);
     }
 
     //ROUNDS UI CONTROLLER
     public void ShowRoundCompleteUI()
     {
+        isUIActive = true;
         round1CompleteUIPanel.SetActive(true);
     }
     public void ShowRound2CompleteUI()
@@ -55,6 +75,7 @@ public class MyUIManager : MonoBehaviour
     //HIDDING THE ROUNDS UI
     public void HideRoundCompleteUI()
     {
+        isUIActive = false;
         round1CompleteUIPanel.SetActive(false);
         //FindObjectOfType<WinnerOrLoser>().ProceedRound2();
     }

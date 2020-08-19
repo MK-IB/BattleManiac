@@ -3,11 +3,25 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
+    public GameObject pauseMenu;
 
     void Start()
     {
         
     }
+
+    public void PauseTheGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeTheGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
    public void LoadNextLevel()
    {
        //FindObjectOfType<Admob>().ShowInterstitialAd();

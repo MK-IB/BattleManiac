@@ -17,6 +17,7 @@ public class AnimationController : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<MyUIManager>().isUIActive = true;
         if(mainUI) mainUI.SetActive(true);
     }
     public List<GameObject> target2;
@@ -37,12 +38,14 @@ public class AnimationController : MonoBehaviour
 
     public void HideMainUI()
     {
+        FindObjectOfType<MyUIManager>().isUIActive = false;
        mainUI.SetActive(false);
     }
 
     public void ShowMainUI()
     {
-       mainUI.SetActive(true);
+        FindObjectOfType<MyUIManager>().isUIActive = false;
+        mainUI.SetActive(true);
     }
      
      //animating the players towards the play ground

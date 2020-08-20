@@ -12,6 +12,8 @@ public class PlayerPrefsController : MonoBehaviour
     const string TILES_COUNTER = "Tiles 2 counter";
     const string TILES_CAPACITY = "Tiles capacity";
     
+    const string BASIC_COLOR_BUTTON_NUM = "BasicColor Btn Num";
+
     public static void SetPosTileState(int state)
     {   
         PlayerPrefs.SetInt(POS_TILE_NULL, state);
@@ -35,6 +37,17 @@ public class PlayerPrefsController : MonoBehaviour
     public static void SetDiamonds(int diamonds)
     {
         PlayerPrefs.SetInt(NUM_OF_DIAMONDS, diamonds);
+    }
+
+    //storing basic colors buttons number
+    public static void SetBasicColorButtonNum(int num)
+    {
+        PlayerPrefs.SetInt(BASIC_COLOR_BUTTON_NUM, num);
+    }
+
+    public static void GetBasicColorButtonNum()
+    {
+        PlayerPrefs.GetInt(BASIC_COLOR_BUTTON_NUM);
     }
     
     public static int GetDiamonds()

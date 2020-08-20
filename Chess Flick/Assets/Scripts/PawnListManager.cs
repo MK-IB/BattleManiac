@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PawnListManager : MonoBehaviour
@@ -21,10 +22,14 @@ public class PawnListManager : MonoBehaviour
    public Material playersMat;
    public Texture grad1,grad2,grad3,grad4,grad5,grad6,grad7,grad8,grad9;
    private Texture defTexture;
+
+    private int basicColorBtnNum;
+    private List<GameObject> basicColorButtons;
    
 
     void Start()
     {
+        basicColorButtons = new List<GameObject>();
         pawns = new List<GameObject>();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         Debug.Log("Current level is" + currentSceneIndex);
@@ -41,6 +46,7 @@ public class PawnListManager : MonoBehaviour
     
    public void ChangeMatColor(int code)
    {
+       basicColorBtnNum = code;
        switch(code)
        {
            case 1:
@@ -83,8 +89,29 @@ public class PawnListManager : MonoBehaviour
        
        playersMat.color = matColor;
        playersMat.mainTexture = null;
-       PlayerPrefsController.SetMatColor(matColor); 
+       PlayerPrefsController.SetMatColor(matColor);
+       ShowSelectedBasicColorButton();
    }
+
+    //show selected basic color button 
+    public void ShowSelectedBasicColorButton()
+    {
+        basicColorButtons = new List<GameObject>(GameObject.FindGameObjectsWithTag("basicColorButton"));
+        for(int i = 0; i < basicColorButtons.Count; i++)
+        {
+                basicColorButtons[i].GetComponent<Image>().color = Color.grey;
+        }
+        for(int i = 0; i < basicColorButtons.Count; i++)
+        {
+            int serial = i + 1;
+            if(serial == basicColorBtnNum)
+            {
+                Debug.Log("Button selected" + i);
+                basicColorButtons[i].GetComponent<Image>().color = Color.white;
+            }
+        }
+
+    }
     //Change the texture
    public void ChangeTexture(int code)
    {

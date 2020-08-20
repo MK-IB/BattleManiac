@@ -21,6 +21,7 @@ TagManager:
   - round 1
   - FxTemporaire
   - gradButton
+  - basicColorButton
   layers:
   - Default
   - TransparentFX

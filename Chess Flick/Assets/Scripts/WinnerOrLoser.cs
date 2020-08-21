@@ -47,6 +47,7 @@ public class WinnerOrLoser : MonoBehaviour
 
         if(tag == "enemyKing" && FindObjectOfType<RoundsController>().finishLineTouched)
         {
+            Debug.Log("WIN CONDITION");
             HandleWinCondition();
         }
         else if(tag == "enemyKing" && FindObjectOfType<RoundsController>().roundCompleted == 1)
@@ -57,10 +58,7 @@ public class WinnerOrLoser : MonoBehaviour
 
          else if(tag == "enemyKing" && FindObjectOfType<RoundsController>().roundCompleted == 2)
         {
-            roundInfo = "Round 2 Complete";
-            FindObjectOfType<MyUIManager>().ShowRound2CompleteUI();
-
-           
+            FindObjectOfType<MyUIManager>().ShowRoundCompleteUI();
         }
     }
 

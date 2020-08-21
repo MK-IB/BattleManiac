@@ -11,6 +11,7 @@ public class MyUIManager : MonoBehaviour
     [SerializeField] private GameObject skinSelectionPanel;
     [SerializeField] private GameObject round1CompleteUIPanel;
     [SerializeField] private GameObject round2CompleteUIPanel;
+    [SerializeField] private GameObject roundIndicator;
 
     public TextMeshProUGUI levelText;
     public Button tileBuyButton;
@@ -25,6 +26,8 @@ public class MyUIManager : MonoBehaviour
             return;
         settingsPanel.SetActive(false);
         skinSelectionPanel.SetActive(false);
+
+        roundIndicator.SetActive(false);
         if(!round1CompleteUIPanel) return;
         round1CompleteUIPanel.SetActive(false);
 
@@ -40,6 +43,17 @@ public class MyUIManager : MonoBehaviour
         
 
     }
+
+    public void ShowRoundIndicator()
+    {
+        isUIActive = false;
+        roundIndicator.SetActive(true);
+    }
+
+    public void HideRoundIndicator()
+    {
+        roundIndicator.SetActive(false);
+    }
     public void ShowSettingsPanel()
     {
         FindObjectOfType<AnimationController>().HideMainUI();
@@ -54,6 +68,7 @@ public class MyUIManager : MonoBehaviour
     public void ShowSkinsPanel()
     {
         isUIActive = true;
+        FindObjectOfType<PawnListManager>().ShowSelectedBasicColorButtonOnStart();
         skinSelectionPanel.SetActive(true);
         gradButtons = new List<GameObject>(GameObject.FindGameObjectsWithTag("gradButton"));
         Debug.Log("Grad buttons size:" + gradButtons.Count);

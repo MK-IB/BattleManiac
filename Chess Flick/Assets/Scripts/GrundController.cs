@@ -19,13 +19,20 @@ public class GrundController : MonoBehaviour
 
     void Start()
     {
+        //foreach(GameObject slab in GameObject.FindGameObjectsWithTag("slab"))
+                //slab.SetActive(false);
     }
 
     public void ShowUpBarrier(int num)
     {
         switch(num)
         {
-            case 1: barrier = barrier1;
+            case 1: 
+            foreach(GameObject slab in GameObject.FindGameObjectsWithTag("slab"))
+            {
+                //slab.SetActive(true);
+                slab.GetComponent<Animator>().SetBool("startSlabExpandAnim", true);
+            }
             break;
 
             case 2: barrier = barrier2;
@@ -36,12 +43,10 @@ public class GrundController : MonoBehaviour
 
             default: break;
         }
-        foreach(Transform bar in barrier)
+        /*foreach(Transform bar in barrier)
         {
             bar.DOScaleY(finalScale, speed);
-            currentScale = bar.transform.localScale.y;
-            
-        }
+        } */
         
         FindObjectOfType<BattleHandler>().InitializeSpawning();
         FindObjectOfType<AnimationController>().DestroySlab();

@@ -31,6 +31,7 @@ public class AnimationController : MonoBehaviour
         else
         {
             HideMainUI();
+            FindObjectOfType<MyUIManager>().ShowRoundIndicator();
             SlabExpandAnimation(slab1, target2, 1); //will call the pawns sliding animation
         }
          
@@ -71,6 +72,7 @@ public class AnimationController : MonoBehaviour
 
     public void DestroySlab()
     {
+        if(!slabTemp) return;
         Destroy(slabTemp.gameObject);
     }
 

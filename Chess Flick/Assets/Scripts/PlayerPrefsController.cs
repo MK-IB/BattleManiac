@@ -45,9 +45,9 @@ public class PlayerPrefsController : MonoBehaviour
         PlayerPrefs.SetInt(BASIC_COLOR_BUTTON_NUM, num);
     }
 
-    public static void GetBasicColorButtonNum()
+    public static int GetBasicColorButtonNum()
     {
-        PlayerPrefs.GetInt(BASIC_COLOR_BUTTON_NUM);
+        return PlayerPrefs.GetInt(BASIC_COLOR_BUTTON_NUM);
     }
     
     public static int GetDiamonds()

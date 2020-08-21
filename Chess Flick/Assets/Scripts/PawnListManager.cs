@@ -106,11 +106,30 @@ public class PawnListManager : MonoBehaviour
             int serial = i + 1;
             if(serial == basicColorBtnNum)
             {
-                Debug.Log("Button selected" + i);
+                //Debug.Log("Button selected" + i);
                 basicColorButtons[i].GetComponent<Image>().color = Color.white;
             }
         }
+        PlayerPrefsController.SetBasicColorButtonNum(basicColorBtnNum);
+    }
 
+    //SET SELECTED BUTTON ON START
+    public void ShowSelectedBasicColorButtonOnStart()
+    {
+        int num = PlayerPrefsController.GetBasicColorButtonNum();
+        for(int i = 0; i < basicColorButtons.Count; i++)
+        {
+                basicColorButtons[i].GetComponent<Image>().color = Color.grey;
+        }
+        for(int i = 0; i < basicColorButtons.Count; i++)
+        {
+            int serial = i + 1;
+            if(serial == num)
+            {
+                //Debug.Log("Button selected" + i);
+                basicColorButtons[i].GetComponent<Image>().color = Color.white;
+            }
+        }
     }
     //Change the texture
    public void ChangeTexture(int code)

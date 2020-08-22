@@ -17,11 +17,11 @@ TagManager:
   - tile
   - triggerTest
   - finishLine
-  - slab 2
   - round 1
   - FxTemporaire
   - gradButton
   - basicColorButton
+  - slab2
   layers:
   - Default
   - TransparentFX

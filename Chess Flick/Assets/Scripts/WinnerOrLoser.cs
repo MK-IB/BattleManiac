@@ -78,6 +78,7 @@ public class WinnerOrLoser : MonoBehaviour
     {
         FindObjectOfType<MyUIManager>().HideRoundCompleteUI();
         //start slab 2 animation + slide pawns to target 3
+        FindObjectOfType<GrundController>().HideBarrier(1);
         FindObjectOfType<FollowKing>().enabled = true;
         FindObjectOfType<BattleHandler>().DestroyTheEnemies();
         barrierNum = 2;

@@ -35,7 +35,12 @@ public class GrundController : MonoBehaviour
             }
             break;
 
-            case 2: barrier = barrier2;
+            case 2:
+            foreach(GameObject slab in GameObject.FindGameObjectsWithTag("slab2"))
+            {
+                //slab.SetActive(true);
+                slab.GetComponent<Animator>().SetBool("startSlabExpandAnim", true);
+            }
             break;
 
             case 3: barrier = barrier3;
@@ -52,11 +57,27 @@ public class GrundController : MonoBehaviour
         FindObjectOfType<AnimationController>().DestroySlab();
     }
 
-    public void HideBarrier()
+    public void HideBarrier(int num)
     {
-        foreach(Transform bar in barrier)
+        switch(num)
         {
-            scaleTween = bar.DOScaleY(finalScale, speed);
+            case 1:
+            foreach(GameObject slab in GameObject.FindGameObjectsWithTag("slab"))
+            {
+                //slab.SetActive(true);
+                slab.GetComponent<Animator>().SetBool("startSlabShrinkAnim", true);
+                slab.SetActive(false);
+            }
+            break;
+
+            case 2:
+            foreach(GameObject slab in GameObject.FindGameObjectsWithTag("slab2"))
+            {
+                //slab.SetActive(true);
+                slab.GetComponent<Animator>().SetBool("startSlabShrinkAnim", true);
+            }
+            break;
         }
+        
     }
 }

@@ -11,9 +11,8 @@ public class MyUIManager : MonoBehaviour
     [SerializeField] private GameObject skinSelectionPanel;
     [SerializeField] private GameObject round1CompleteUIPanel;
     [SerializeField] private GameObject round2CompleteUIPanel;
+    [SerializeField] private GameObject noAdsPanel;
     [SerializeField] private GameObject roundIndicator;
-
-    public TextMeshProUGUI levelText;
     public Button tileBuyButton;
 
     public bool isUIActive = false;
@@ -34,15 +33,10 @@ public class MyUIManager : MonoBehaviour
          if(SceneManager.GetActiveScene().buildIndex >= 9)
             tileBuyButton.interactable = true;
         else tileBuyButton.interactable = false;
-        
+        noAdsPanel.SetActive(false);
         
     }
 
-    private void Start()
-    {
-        
-
-    }
 
     public void ShowRoundIndicator()
     {
@@ -108,5 +102,13 @@ public class MyUIManager : MonoBehaviour
         round2CompleteUIPanel.SetActive(false);
     }
 
+    public void ShowNoAdsPanel()
+    {
+        noAdsPanel.SetActive(true);
+    }
+    public void HideNoAdsPanel()
+    {
+        noAdsPanel.SetActive(false);
+    }
    
 }

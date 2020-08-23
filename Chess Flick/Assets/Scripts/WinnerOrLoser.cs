@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -30,6 +31,11 @@ public class WinnerOrLoser : MonoBehaviour
 
     private int barrierNum;
     private int counter;
+
+    [HideInInspector] public int diamondTemp = 0;
+    [HideInInspector] public int totDiamondsWon = 0;
+
+    public TextMeshProUGUI diamondWonText;
 
     private void Awake()
     {
@@ -99,15 +105,26 @@ public class WinnerOrLoser : MonoBehaviour
         loseCanvas.SetActive(true);
     }
 
+    //DIAMONDS WON AFTER EACH ENEMY IS KILLED
+    public void DiamondsWon(int num)
+    {
+        diamondTemp += num; 
+    }
+
+    //ADD THE WON DIAMONDS TO DIAMONDS COUNETER
     public void HandleWinCondition()
     {
-        Debug.Log("You Win");
+        if(loseCanvas.activeSelf) return;
+        FindObjectOfType<MyUIManager>().isUIActive = true;
         winCanvas.SetActive(true);
+        totDiamondsWon = diamondTemp + 250;
+        diamondWonText.SetText(totDiamondsWon.ToString());
     }
 
     //calling from the diamonds img animation event !
     public void HideWinCanvas()
     {
+        if(winCanvas.activeSelf) return;
         winCanvas.SetActive(false);
     }
     IEnumerator CrownAnimation()

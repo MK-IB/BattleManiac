@@ -93,7 +93,7 @@ public class BattleHandler : MonoBehaviour
             transform.eulerAngles.z > 45 || transform.eulerAngles.z < -45)
                 {transform.eulerAngles = Vector3.zero;}
                 
-        //INITIALIZE THE PLAYERS AGAIN TO AVOID NULL EXCEPTION
+        //INITIALIZE THE PLAYERS AGAIN TO AVOID NULL EXCEPTIONS
         if(GameObject.FindGameObjectWithTag("playerPawn"))
             playersArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("playerPawn"));
         else {
@@ -104,12 +104,10 @@ public class BattleHandler : MonoBehaviour
         enemyKing = GameObject.FindGameObjectWithTag("enemyKing");
         Debug.Log("Its enemy turn");
         enemyPosition = enemyKing.transform.position;
-        //playerPosition = playerKing.transform.position;
 
         //choose enemy attacker randomly
         int enemyIndex = Random.Range(0, enemyArray.Count);
         attackerEnemy = enemyArray[enemyIndex];
-
         //check if the player King is closer
         /*float distFromPlayerKing = Vector3.Distance(attackerEnemy.transform.position, playerKing.transform.position);
         if(distFromPlayerKing <= playerKingDist)
@@ -120,7 +118,6 @@ public class BattleHandler : MonoBehaviour
         else
         { */
         //choose player to attack and direction of it
-        
         int playerIndex = Random.Range(0, playersArray.Count);
         toAttack = playersArray[playerIndex];
         Vector3 dir = toAttack.transform.position - attackerEnemy.transform.position;

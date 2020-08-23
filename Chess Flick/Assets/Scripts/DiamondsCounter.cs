@@ -8,13 +8,17 @@ public class DiamondsCounter : MonoBehaviour
     public TextMeshProUGUI mainDiamondCounter;
     public TextMeshProUGUI skinDiamondCounter;
     public Animator diamondsImgAnimator;
-    private int diamonds = 0;
+    private int diamonds;
 
     void Start()
     {
-        diamonds = PlayerPrefsController.GetDiamonds();
+      if(SceneManager.GetActiveScene().name == "Level 1")
+      {
+        diamonds = 1000;
+        PlayerPrefsController.SetDiamonds(diamonds);
+      }
+      diamonds = PlayerPrefsController.GetDiamonds();
         UpdateDisplay();
-        Debug.Log("Diamonds=" + PlayerPrefsController.GetDiamonds());
     }
 
   private void UpdateDisplay()
@@ -23,6 +27,7 @@ public class DiamondsCounter : MonoBehaviour
         return;
       mainDiamondCounter.SetText(PlayerPrefsController.GetDiamonds().ToString());
       skinDiamondCounter.SetText(PlayerPrefsController.GetDiamonds().ToString());
+      Debug.Log("Diamonds=" + diamonds);
   }
 
   public bool HaveEnoughDiamonds(int amount)
@@ -49,6 +54,7 @@ public class DiamondsCounter : MonoBehaviour
     public void CollectDiamonds()
       {
          diamondsImgAnimator.SetBool("startDiamondsAnimation", true);
-         AddDiamonds(50);
+         int diamondsWon = FindObjectOfType<WinnerOrLoser>().totDiamondsWon;
+         AddDiamonds(diamondsWon);
       }
 }

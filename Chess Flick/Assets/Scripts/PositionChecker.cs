@@ -13,6 +13,9 @@ public class PositionChecker : MonoBehaviour
             {
                 FindObjectOfType<WinnerOrLoser>().WinOrLose(gameObject.tag);
             }
+            
+            if(gameObject.tag == "enemyPawn")
+                FindObjectOfType<WinnerOrLoser>().DiamondsWon(Random.Range(5, 15));
             DestroyThis(gameObject);
         }
     }
